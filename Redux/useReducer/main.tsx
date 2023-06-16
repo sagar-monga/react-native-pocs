@@ -1,11 +1,12 @@
 import React, { useReducer } from 'react';
 
 // useReducer is a hook to use when you have complex state logic.
-// const [state, dispatch] = useReducer(reducer, initialValue)
+// const [state, dispatch] = useReducer(reducer, initialValue, initializationFunction)
 // dispatch is used to dispatch actions - dispatch(action)
 // the action is caught in the reducer. The reducer takes 2 params, state & action
 // state is the value of store, initialized by the initialValue parameter
 // action is an object which contains type and additional information(usually named payload), to be passed in dispatch.
+// initializationFunction avoids initialization at every render and does it at once
 
 export function App(props) {
   const reducer = (state, action) => {
