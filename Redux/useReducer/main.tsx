@@ -5,7 +5,7 @@ import React, { useReducer } from 'react';
 // dispatch is used to dispatch actions - dispatch(action)
 // the action is caught in the reducer. The reducer takes 2 params, state & action
 // state is the value of store, initialized by the initialValue parameter
-// action is an object which contains type and additional information, to be passed in dispatch.
+// action is an object which contains type and additional information(usually named payload), to be passed in dispatch.
 
 export function App(props) {
   const reducer = (state, action) => {
