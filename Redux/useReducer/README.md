@@ -1,3 +1,3 @@
 # Working of useReducer
 
-[!image](reducer.png)
+![useReducer_draw](./reducer.png)
