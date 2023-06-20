@@ -4,3 +4,5 @@
 
 Reduces the boilerplate as follows
 ![comparison](./rtk.png)
+
+## Create Store
