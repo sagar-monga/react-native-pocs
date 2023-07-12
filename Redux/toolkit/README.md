@@ -15,3 +15,28 @@ createSlice takes 3 args - name, initialState, reducers
 ![sliceCodeSnipper](./slice.png)
 
 ## Create Store
+Single source of truth
+- All slices created === Redux store
+- created with configureStore
+
+- reducer is a root reducer for the store if there is 1 slice and combineReducer if multiple slices 
+
+```
+const store = configureStore({
+    reducer: {
+        nameOfSlice: sliceFromCreateSlice.reducer,
+    }     // Contains all slices' reducers
+});
+```
+OR
+
+```
+createSlice...
+export default name.reducer;
+
+const store = configureStore({
+    reducer: {
+        nameOfSlice: createdSlice,
+    }     // Contains all slices' reducers
+});
+```
