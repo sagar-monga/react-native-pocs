@@ -2,6 +2,7 @@ import { StyleSheet, View } from "react-native";
 import React from "react";
 import StyledIconButton from "./StyledIconButton";
 import ImageView from "./ImageView";
+import Spacer from "./Spacer";
 
 
 const HomeScreen = () => {
@@ -16,6 +17,7 @@ const HomeScreen = () => {
 			}}
 		>
             <ImageView />
+            <Spacer size={40}/>
 			<StyledIconButton
 				text={"Choose a Photo"}
 				icon={"photo"}
@@ -23,6 +25,7 @@ const HomeScreen = () => {
 				style={{backgroundColor: 'white'}}
                 textStyle={{color: 'black'}}
 			/>
+            <Spacer size={20} />
 			<StyledIconButton text={"Use this Photo"} style={{backgroundColor: 'red'}}/>
 		</View>
 	);
