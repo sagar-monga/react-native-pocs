@@ -8,9 +8,10 @@ type Props = {
 	border?: boolean;
 	style?: ViewStyle;
     textStyle?: TextStyle;
+    onPress?: () => void;
 };
 
-const StyledIconButton = ({ border = false, icon, style, text, textStyle}: Props) => {
+const StyledIconButton = ({ border = false, icon, style, text, textStyle, onPress = () => {}}: Props) => {
 	return (
 		<Pressable
 			style={[
@@ -22,6 +23,7 @@ const StyledIconButton = ({ border = false, icon, style, text, textStyle}: Props
                 ? { borderColor: "yellow", borderWidth: 5, borderRadius: 15 }
                 : null,
 			]}
+            onPress={onPress}
             >
 			<View
 				style={[

@@ -9,13 +9,17 @@ const HomeScreen = () => {
 	return (
 		<View
 			style={{
-				flex: 1,
+                // maxWidth for rendering proper UI on web, can use conditional styling too.
+                maxWidth: 500,
+				width: '100%',
+                height: '100%',
 				backgroundColor: "#25292e",
 				justifyContent: "center",
 				alignItems: "center",
 				paddingHorizontal: 40,
 			}}
 		>
+            <Spacer size={40}/>
             <ImageView />
             <Spacer size={40}/>
 			<StyledIconButton
