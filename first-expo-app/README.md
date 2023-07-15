@@ -1,0 +1,1 @@
+- add support for web after installing - react-dom, react-native-web & @expo/webpack-config  
