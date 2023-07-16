@@ -1,11 +1,33 @@
-import { StyleSheet, View } from "react-native";
-import React from "react";
+import { Alert, StyleSheet, View } from "react-native";
+import React, { useState } from "react";
 import StyledIconButton from "./StyledIconButton";
 import ImageView from "./ImageView";
 import Spacer from "./Spacer";
+import { MediaTypeOptions, launchImageLibraryAsync } from "expo-image-picker";
 
+const PlaceHolderImage = require('../assets/images/background-image.png');
 
 const HomeScreen = () => {
+    const [image, setImage] = useState(PlaceHolderImage);
+
+    // try to select video too. see how <Image> handles videos.
+    const selectImage = async () => {
+        const result = await launchImageLibraryAsync({
+            mediaTypes: MediaTypeOptions.Images,
+            allowsEditing: true,
+            aspect: [4,3],
+            quality: 1,
+            allowsMultipleSelection: false,
+        });
+
+        if(!result.canceled) {
+            setImage(result.assets[0].uri);
+        }
+        else {
+            Alert.alert('Library Explorer', 'You did not select any image!');
+        }
+    }
+
 	return (
 		<View
 			style={{
@@ -20,7 +42,7 @@ const HomeScreen = () => {
 			}}
 		>
             <Spacer size={40}/>
-            <ImageView />
+            <ImageView src={image}/>
             <Spacer size={40}/>
 			<StyledIconButton
 				text={"Choose a Photo"}
@@ -28,9 +50,10 @@ const HomeScreen = () => {
 				border
 				style={{backgroundColor: 'white'}}
                 textStyle={{color: 'black'}}
+                onPress={selectImage}
 			/>
             <Spacer size={20} />
-			<StyledIconButton text={"Use this Photo"} style={{backgroundColor: 'red'}}/>
+			<StyledIconButton text={"Use this Photo"}/>
 		</View>
 	);
 };

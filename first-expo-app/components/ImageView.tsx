@@ -1,14 +1,16 @@
-import { StyleSheet, Image } from 'react-native'
+import { StyleSheet, Image, ImageSourcePropType } from 'react-native'
 import React from 'react'
 
-const PlaceHolderImage = require('../assets/images/background-image.png');
+type Props = {
+  src: ImageSourcePropType;
+}
 
-const ImageView = () => {
+const ImageView = ({src}: Props) => {
   return (
     <Image
 	    style={{ width: 356, height:552, borderRadius: 15 }}
       // Either approach can be used for source
-      source={PlaceHolderImage}
+      source={src}
       // source={require("../assets/images/background-image.png")}
 	/>
   )
