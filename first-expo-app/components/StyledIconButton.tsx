@@ -1,37 +1,55 @@
-import { Pressable, StyleSheet, Text, TextStyle, View, ViewStyle } from "react-native";
+import {
+	FlexStyle,
+	OpaqueColorValue,
+	Pressable,
+	StyleSheet,
+	Text,
+	TextStyle,
+	View,
+	ViewStyle,
+} from "react-native";
 import React from "react";
 import { MaterialIcons } from "@expo/vector-icons";
 
 type Props = {
-	text: string;
+	text?: string;
 	icon?: keyof typeof MaterialIcons.glyphMap;
 	border?: boolean;
 	style?: ViewStyle;
-    textStyle?: TextStyle;
-    onPress?: () => void;
+	textStyle?: TextStyle;
+	onPress?: () => void;
+	borderStyle?: ViewStyle;
+	iconSize?: number;
+	iconColor?: string | OpaqueColorValue;
 };
 
-const StyledIconButton = ({ border = false, icon, style, text, textStyle, onPress = () => {}}: Props) => {
+const StyledIconButton = ({
+	border = false,
+	icon,
+	style,
+	text,
+	textStyle,
+	borderStyle,
+	onPress = () => {},
+	iconSize = 12,
+	iconColor = 'black',
+}: Props) => {
 	return (
 		<Pressable
 			style={[
-				{
-					width: "100%",
-					flexDirection: "row",
-				},
 				border
-                ? { borderColor: "yellow", borderWidth: 5, borderRadius: 15 }
-                : null,
+					? { borderColor: "yellow", borderWidth: 5, borderRadius: 15 }
+					: null,
+				borderStyle,
 			]}
-            onPress={onPress}
-            >
+			onPress={onPress}
+		>
 			<View
 				style={[
-                    {
-                        padding: 20,
+					{
+						padding: 20,
 						margin: 5,
 						backgroundColor: "#25292e",
-						flex: 1,
 						flexDirection: "row",
 						justifyContent: "center",
 						alignItems: "center",
@@ -41,9 +59,14 @@ const StyledIconButton = ({ border = false, icon, style, text, textStyle, onPres
 				]}
 			>
 				{icon && (
-					<MaterialIcons name={icon} style={{ marginHorizontal: 10 }} />
+					<MaterialIcons
+						name={icon}
+						size={iconSize}
+						color={iconColor}
+						style={icon && text ? { marginHorizontal: 10 } : null}
+					/>
 				)}
-				<Text style={[{color: 'white'}, textStyle]}>{text}</Text>
+				{text && <Text style={[{ color: "white" }, textStyle]}>{text}</Text>}
 			</View>
 		</Pressable>
 	);
