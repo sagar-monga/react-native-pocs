@@ -40,3 +40,72 @@ const store = configureStore({
     }     // Contains all slices' reducers
 });
 ```
+
+## Connecting React to Redux store
+- <Provider> from React-redux
+- Pass store to the Provider.
+
+## Update state data
+```
+const data = () => {
+    console.log(`Do some work here`);
+    // Do additional work here and return the modified values.
+    const calculatedData = 'Hello';
+    return calculatedData;
+}
+
+const addUser = (payload) => {
+    console.log(payload);
+}
+
+// Here addUser's payload = hello
+<button onClick={() => addUser(data())}>Add</button>
+```
+- By the above logic, we can get data. Now main concern is how to add it to store?
+
+- 2 steps to update store
+1. useDispatch hook
+2. Action creators
+
+Example for action creators:
+```
+
+// initial state goes here
+const initialState = {
+    items: {
+        name: string;
+        id: string;
+        qty: number;
+    }[],
+    accessTime: DateTime;
+}
+
+const itemSlice = createSlice({
+    name: 'item',
+    initialState = initialState,
+    reducers: {
+        addItem(state, action) {
+            state.items.push(action.payload)
+        },
+        removeItem(state, action) {
+            
+        },
+        updateDate(state, action) {
+            state.accessTime = action.payload
+        }
+    }
+});
+
+export const {
+    addItem,
+    removeItem,
+    updateDate
+} = itemSlice.actions;
+
+// These actions are called using dispatch
+
+const dispatch = useDispatch();
+dispatch(addItem(data));
+```
+
+It is a good practice to export default slice.reducer and add another export const {} = slice.actions
