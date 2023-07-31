@@ -1,17 +1,13 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StatusBar,
-  View,
-} from 'react-native';
+import store from './src/store';
+import { Provider } from 'react-redux';
+import AppEntry from './src/AppEntry';
 
 const App = () => {
   return (
-    <SafeAreaView style={{ height: '100%', width: '100%' }}>
-      <StatusBar />
-      <View style={{ backgroundColor: 'lightblue', flex: 1 }}>
-      </View>
-    </SafeAreaView>
+    <Provider store={store}>
+      <AppEntry />
+    </Provider>
   );
 }
 
