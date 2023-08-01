@@ -18,7 +18,7 @@ const itemSlice = createSlice({
       state.item.push(action.payload);
     },
     deleteItemById(state, action) {
-      state.item = state.item.filter(item => item.id !== action.payload);
+      state.item.splice(action.payload, 1);
     },
     updateAccessDate(state, action) {
       state.accessTime = action.payload;
