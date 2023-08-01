@@ -5,7 +5,6 @@ import EmptyComponent from './EmptyComponent';
 
 const List = () => {
   const {item: cartItems} = useRedux(s => s.cart);
-  console.log(JSON.stringify(cartItems));
   return (
     <FlatList data={cartItems} renderItem={({ item }) => <View><Text>{item.name}</Text></View>} ListEmptyComponent={EmptyComponent} />
   )
