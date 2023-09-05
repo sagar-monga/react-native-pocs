@@ -15,22 +15,34 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.smdevcodes.firstexpoapp"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.smdevcodes.firstexpoapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": [[
-      "expo-image-picker",
-      {
-        "photosPermission": "${name} requires to access your pictures."
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "${name} requires to access your pictures."
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "f2091452-a62a-4973-a44e-d010507147aa"
       }
-    ]]
+    }
   }
 }
