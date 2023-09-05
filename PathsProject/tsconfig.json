@@ -1,3 +1,21 @@
 {
-  "extends": "@tsconfig/react-native/tsconfig.json"
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      // "@*": ["./src/*"],
+      "@components/*": ["src/components/*"]
+      // "@hooks/*": ["src/hooks/*"],
+      // "@utils/*": ["src/utils/*"],
+      // "@service/*": ["src/service/*"],
+      // "@i18n/*": ["src/i18n/*"],
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js"
+  ]
 }
