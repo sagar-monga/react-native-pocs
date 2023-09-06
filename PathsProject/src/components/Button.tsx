@@ -1,8 +1,17 @@
-import {Pressable, StyleSheet} from 'react-native';
+import {Pressable, StyleSheet, Text} from 'react-native';
 import React from 'react';
 
-const Button = () => {
-  return <Pressable></Pressable>;
+interface Props {
+  title: string;
+  onPress: () => void;
+}
+
+const Button = ({title, onPress}: Props) => {
+  return (
+    <Pressable onPress={onPress}>
+      <Text>{title}</Text>
+    </Pressable>
+  );
 };
 
 export default Button;
