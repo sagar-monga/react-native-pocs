@@ -1,7 +1,8 @@
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
 import BottomSheet from '@gorhom/bottom-sheet';
-import BottomSheetContent from './BottomSheetContent';
+import BottomSheetContentView from './BottomSheetContentView';
+import BottomSheetContentFlatList from './BottomSheetContentFlatlist';
 
 const ButtonWithBottomSheet = () => {
   const [sheetOpen, setSheetOpen] = useState(false);
@@ -28,7 +29,7 @@ const ButtonWithBottomSheet = () => {
           // snapPoints={[100, 200]}
           snapPoints={['10%', '30%']}
           backgroundStyle={{backgroundColor: 'red'}}
-          
+
           // Applied to the container in the bg when sheet is active, uncomment to see
           // containerStyle={{backgroundColor: 'blue'}}
 
@@ -40,7 +41,8 @@ const ButtonWithBottomSheet = () => {
               setSheetOpen(false);
             }
           }}>
-          <BottomSheetContent />
+          {/* <BottomSheetContentView /> */}
+          <BottomSheetContentFlatList />
         </BottomSheet>
       )}
     </View>
