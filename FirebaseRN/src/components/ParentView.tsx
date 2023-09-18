@@ -1,8 +1,8 @@
 import {StyleProp, StyleSheet, View, ViewStyle} from 'react-native';
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 type ParentViewProps = {
-  children: Element;
+  children?: ReactNode;
   style?: StyleProp<ViewStyle>;
 };
 
