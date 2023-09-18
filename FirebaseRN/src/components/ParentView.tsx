@@ -1,12 +1,9 @@
-import {StyleProp, StyleSheet, View, ViewStyle} from 'react-native';
-import React, { ReactNode } from 'react';
+import {StyleSheet, View, ViewProps} from 'react-native';
+import React from 'react';
 
-type ParentViewProps = {
-  children?: ReactNode;
-  style?: StyleProp<ViewStyle>;
-};
+type ParentViewProps = {};
 
-const ParentView = ({children, style}: ParentViewProps) => {
+const ParentView = ({children, style}: ViewProps & ParentViewProps) => {
   return <View style={[{flex: 1}, style]}>{children}</View>;
 };
 
