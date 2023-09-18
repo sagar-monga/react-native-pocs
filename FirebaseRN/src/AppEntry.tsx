@@ -1,12 +1,30 @@
 import {StyleSheet} from 'react-native';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import ParentView from './components/ParentView';
 import HomeScreen from './screens/HomeScreen';
 import LoginScreen from './screens/LoginScreen';
+import auth from '@react-native-firebase/auth';
 
 const AppEntry = () => {
-  const auth = false;
-  return <ParentView>{auth ? <HomeScreen /> : <LoginScreen />}</ParentView>;
+  // Set an initializing state whilst Firebase connects
+  const [initializing, setInitializing] = useState(true);
+  const [user, setUser] = useState<unknown>();
+
+  // Handle user state changes
+  function onAuthStateChanged(user: unknown) {
+    console.log(`Auth state changed!`);
+    setUser(user);
+    if (initializing) setInitializing(false);
+  }
+
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return  () => {
+      console.log(`UNMOUNTING listener`);
+      subscriber()
+    }; // unsubscribe on unmount
+  }, []);
+  return <ParentView>{user ? <HomeScreen /> : <LoginScreen />}</ParentView>;
 };
 
 export default AppEntry;
