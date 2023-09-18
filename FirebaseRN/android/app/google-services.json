@@ -7,12 +7,25 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:458716631788:android:c4f3150c5a662823600bc9",
+        "mobilesdk_app_id": "1:458716631788:android:3c3648ad0ecce040600bc9",
         "android_client_info": {
           "package_name": "com.firebasern"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "458716631788-co8ncfpka1qpom50fqp8ftvs477lvg9q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.firebasern",
+            "certificate_hash": "0b8c6a028978c8b182027403eec818a6463042a6"
+          }
+        },
+        {
+          "client_id": "458716631788-5l39ncfn1m6hol1v3rmeqs2bg5po95ao.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyA71n-44X2oqS_7isWDd1JDPTp8y4ZC-2o"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "458716631788-5l39ncfn1m6hol1v3rmeqs2bg5po95ao.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
