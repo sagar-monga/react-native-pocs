@@ -8,4 +8,4 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 # What all works
 - Dynamic Component sizing
-- 
+- AppState for showing different screen and not image on recents screen.
