@@ -1,9 +1,9 @@
 import {SafeAreaView, View} from 'react-native';
 import React, {useEffect} from 'react';
 import AppEntry from './src/AppEntry';
-import {useAppStateChange} from './src/hooks/useAppStateChange';
 import InactiveScreen from './src/screens/InactiveScreen';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import useAppStateChange from './src/hooks/useAppStateChange';
 
 const App = () => {
   GoogleSignin.configure({

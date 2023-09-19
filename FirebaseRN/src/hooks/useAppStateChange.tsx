@@ -83,3 +83,5 @@ export const useAppStateChange = (
 
   return {isFocused};
 };
+
+export default useAppStateChange;
