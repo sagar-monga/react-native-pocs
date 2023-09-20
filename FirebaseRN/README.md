@@ -3,9 +3,11 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 # Supported features
 - Firebase Auth & Storage with feature flags stored on cloud.
-- Dynamic component sizing
+- Dynamic component sizing.
 - AppState for showing different screen and not image on recents screen.
+- Zustand for state management.
 
 # What all works
-- Dynamic Component sizing
+- Dynamic Component sizing.
 - AppState for showing different screen and not image on recents screen.
+- Zustand

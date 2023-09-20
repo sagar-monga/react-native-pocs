@@ -1,3 +1,4 @@
+import { FirebaseAuthTypes } from '@react-native-firebase/auth';
 import {User} from '@react-native-google-signin/google-signin';
 
 /**
@@ -35,4 +36,18 @@ export enum BasedAxis {
  * Types
  */
 
-export type UserType = User;
+export type DummyUser = {
+  user: {
+    email: string;
+    name: string;
+    isDummy: boolean;
+  }
+  platform: string;
+}
+
+export type GoogleUser =  FirebaseAuthTypes.UserCredential & {
+  platform: string;
+}
+
+// 'platform' is the discriminant in this type
+export type UserType = GoogleUser | DummyUser;
