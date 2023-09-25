@@ -8,6 +8,7 @@ export type ItemType = {
 export type Item = {
   items: ItemType[];
   addItem: (item: ItemType) => void;
+  updateItem: (item: ItemType, index: number) => void;
   clearAllItems: () => void;
 };
 
@@ -26,6 +27,16 @@ const createItemSlice: StateCreator<Item, [['zustand/devtools', never]], []> = (
     set(() => ({
       items: [],
     }));
+  },
+
+  updateItem: (item, index) => {
+    set(state => {
+      const selectedItem = state.items[index];
+      selectedItem.name = item.name;
+      selectedItem.quantity = item.quantity;
+
+      return state;
+    });
   },
 });
 
