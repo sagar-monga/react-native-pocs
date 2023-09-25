@@ -25,13 +25,7 @@ const FormInputScreen = () => {
   // const name = useStore(state => state.name);
 
   return (
-    <ParentView
-      style={{
-        backgroundColor: 'firebrick',
-        justifyContent: 'center',
-        alignItems: 'center',
-        paddingHorizontal: 20,
-      }}>
+    <ParentView style={styles.parentContainer}>
       <TextInputWithLabel
         label="Name"
         placeholder="Enter your name"
@@ -61,6 +55,12 @@ const FormInputScreen = () => {
 export default FormInputScreen;
 
 const styles = StyleSheet.create({
+  parentContainer: {
+    backgroundColor: 'firebrick',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+  },
   button: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -71,18 +71,5 @@ const styles = StyleSheet.create({
     paddingVertical: utils.pixelGap(15),
     paddingHorizontal: utils.pixelGap(20),
     fontSize: FontSize.small,
-  },
-
-  defaultContainerStyle: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  defaultTextStyle: {
-    width: '20%',
-  },
-  defaultInputStyle: {
-    width: '80%',
-    borderWidth: 2,
-    borderRadius: 10,
   },
 });
