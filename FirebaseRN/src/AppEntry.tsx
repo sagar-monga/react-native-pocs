@@ -6,6 +6,7 @@ import LoginScreen from './screens/LoginScreen';
 import auth from '@react-native-firebase/auth';
 import useUserStore from './hooks/useUserStore';
 import { UserType } from './utils/constants';
+import FormInputScreen from './screens/FormInputScreen';
 
 const AppEntry = () => {
   // Set an initializing state whilst Firebase connects
@@ -27,7 +28,10 @@ const AppEntry = () => {
   //     subscriber();
   //   }; // unsubscribe on unmount
   // }, []);
-  return <ParentView>{user ? <HomeScreen /> : <LoginScreen />}</ParentView>;
+  return <ParentView>
+    {/* {user ? <HomeScreen /> : <LoginScreen />} */}
+    <FormInputScreen />
+    </ParentView>;
 };
 
 export default AppEntry;
