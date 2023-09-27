@@ -8,6 +8,7 @@ import useUserStore from './hooks/useUserStore';
 import { UserType } from './utils/constants';
 import FormInputScreen from './screens/FormInputScreen';
 import NewFormInputScreen from './screens/NewFormInputScreen';
+import TailwindStyled from './screens/TailwindStyled';
 
 const AppEntry = () => {
   // Set an initializing state whilst Firebase connects
@@ -32,7 +33,8 @@ const AppEntry = () => {
   return <ParentView>
     {/* {user ? <HomeScreen /> : <LoginScreen />} */}
     {/* <FormInputScreen /> */}
-    <NewFormInputScreen />
+    {/* <NewFormInputScreen /> */}
+    <TailwindStyled />
     </ParentView>;
 };
 
