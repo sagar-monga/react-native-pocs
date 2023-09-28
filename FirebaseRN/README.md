@@ -13,3 +13,7 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 - AppState for showing different screen and not image on recents screen.
 - Zustand.
 - NativeWind
+- Firebase Auth (Google login)
+
+# ToDo
+- Feature flags stored on firestore

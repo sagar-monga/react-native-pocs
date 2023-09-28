@@ -1,2 +1,0 @@
-### TODOS
-- Implement firebase login
