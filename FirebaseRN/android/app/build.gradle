@@ -74,9 +74,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.firebasern"
+    namespace "com.firebasereactnative.test"
     defaultConfig {
-        applicationId "com.firebasern"
+        applicationId "com.firebasereactnative.test"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

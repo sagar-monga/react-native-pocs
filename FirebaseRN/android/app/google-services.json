@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:771672005871:android:10bef7e7d60adcfe850f1a",
+        "mobilesdk_app_id": "1:771672005871:android:2e37d3f1e5e257ad850f1a",
         "android_client_info": {
-          "package_name": "com.firebasern"
+          "package_name": "com.firebasereactnative.test"
         }
       },
       "oauth_client": [],

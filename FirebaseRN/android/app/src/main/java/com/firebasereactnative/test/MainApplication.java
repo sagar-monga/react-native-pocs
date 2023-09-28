@@ -1,4 +1,4 @@
-package com.firebasern;
+package com.firebasereactnative.test;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

@@ -55,7 +55,7 @@ const LoginScreen = () => {
         Login using any of the mentioned ways
       </Text>
       <Spacer height={20} />
-      <View style={{backgroundColor: 'red'}}>
+      <View>
         <Pressable
           style={[styles.loginButton, styles.googleSignInButton]}
           onPress={googleSignIn}>

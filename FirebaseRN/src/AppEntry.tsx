@@ -30,11 +30,12 @@ const AppEntry = () => {
   //     subscriber();
   //   }; // unsubscribe on unmount
   // }, []);
+
   return <ParentView>
-    {/* {user ? <HomeScreen /> : <LoginScreen />} */}
+    {user ? <HomeScreen /> : <LoginScreen />}
     {/* <FormInputScreen /> */}
     {/* <NewFormInputScreen /> */}
-    <TailwindStyled />
+    {/* <TailwindStyled /> */}
     </ParentView>;
 };
 

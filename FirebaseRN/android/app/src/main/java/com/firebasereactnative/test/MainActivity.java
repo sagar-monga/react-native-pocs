@@ -1,4 +1,4 @@
-package com.firebasern;
+package com.firebasereactnative.test;
 
 import android.app.ActionBar;
 import android.view.View;
