@@ -6,28 +6,24 @@ import Spacer from '../../components/Spacer';
 import List from '../NewFormInputScreen/components/List';
 import utils from '../../utils/utils';
 import {FontSize} from '../../utils/constants';
+import {useFormLogic} from '../../hooks/useFormLogic';
 
 const TailwindStyled = () => {
-  const {name, email, age, setName, setAge, setEmail, addItem, clearAllItems} =
-    useStateStore();
+  const {
+    name,
+    email,
+    age,
+    itemName,
+    quantity,
+    setName,
+    setAge,
+    setEmail,
+    onPressAddButton,
+    onPressClearAll,
+    setItemName,
+    setQuantity,
+  } = useFormLogic();
 
-  const [itemName, setItemName] = useState('');
-  const [quantity, setQuantity] = useState(0);
-
-  const onPressAddButton = () => {
-    if (itemName === '' || quantity === 0) return;
-    addItem({
-      name: itemName,
-      quantity: quantity,
-    });
-
-    setItemName('');
-    setQuantity(0);
-  };
-
-  const onPressClearAll = () => {
-    clearAllItems();
-  };
   return (
     <View className="flex-1 items-center justify-center bg-red-800">
       <TextInputWithLabel

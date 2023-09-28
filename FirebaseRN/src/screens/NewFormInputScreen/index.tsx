@@ -7,28 +7,23 @@ import utils from '../../utils/utils';
 import Spacer from '../../components/Spacer';
 import useStateStore from './store/useStore';
 import List from './components/List';
+import { useFormLogic } from '../../hooks/useFormLogic';
 
 const NewFormInputScreen = () => {
-  const {name, email, age, setName, setAge, setEmail, addItem, clearAllItems} =
-    useStateStore();
-
-  const [itemName, setItemName] = useState('');
-  const [quantity, setQuantity] = useState(0);
-
-  const onPressAddButton = () => {
-    if (itemName === '' || quantity === 0) return;
-    addItem({
-      name: itemName,
-      quantity: quantity,
-    });
-
-    setItemName('');
-    setQuantity(0);
-  };
-
-  const onPressClearAll = () => {
-    clearAllItems();
-  };
+  const {
+    name,
+    email,
+    age,
+    itemName,
+    quantity,
+    setName,
+    setAge,
+    setEmail,
+    onPressAddButton,
+    onPressClearAll,
+    setItemName,
+    setQuantity,
+  } = useFormLogic();
 
   return (
     <ParentView style={styles.parentContainer}>
