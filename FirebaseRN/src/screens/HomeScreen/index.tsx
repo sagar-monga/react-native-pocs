@@ -1,13 +1,10 @@
-import {StyleSheet, Text} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import ParentView from '../../components/ParentView';
 import useUserStore from '../../hooks/useUserStore';
-import {User} from '@react-native-google-signin/google-signin';
-import {UserType} from '../../utils/constants';
 
 const HomeScreen = () => {
   const {user} = useUserStore();
-
   return (
     <ParentView
       style={{
@@ -16,7 +13,16 @@ const HomeScreen = () => {
         justifyContent: 'center',
         alignItems: 'center',
       }}>
-      <Text style={styles.textStyle}>{JSON.stringify(user, null, 4)}</Text>
+      <Text style={styles.textStyle}>{`Hello, ${user?.displayName}`}</Text>
+      <View style={{
+        position: 'absolute',
+        top: 20,
+        right: 20,
+        backgroundColor: 'midnightblue',
+        padding: 15, borderRadius: 50
+      }}>
+        <Text>{user?.platform}</Text>
+      </View>
     </ParentView>
   );
 };

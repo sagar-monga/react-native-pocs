@@ -1,6 +1,6 @@
 import {create} from 'zustand';
 import {devtools} from 'zustand/middleware';
-import {UserType} from '../utils/constants';
+import {GoogleUser, UserType} from '../utils/constants';
 
 interface UserState {
   // Add States

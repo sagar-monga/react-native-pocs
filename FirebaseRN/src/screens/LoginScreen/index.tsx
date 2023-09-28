@@ -10,7 +10,6 @@ import useUserStore from '../../hooks/useUserStore';
 
 const LoginScreen = () => {
 
-  // const {setUser} = useUserStore();
   const setUser = useUserStore(state => state.setUser);
 
   const googleSignIn = async () => {
@@ -28,8 +27,8 @@ const LoginScreen = () => {
 
       // Sign-in the user with the credential
       const obj = await auth().signInWithCredential(googleCredential);
-      console.log(`Signed in: ${JSON.stringify(obj)}`);
-      setUser({...obj.user, platform: 'Google'})
+      console.log(`Signed in`);
+      // setUser({...obj.user, platform: 'Google'})
     } catch (e: unknown) {
       console.log(`Error is: ${JSON.stringify(e)}`);
     }
@@ -40,7 +39,6 @@ const LoginScreen = () => {
       user: {
         name: 'Dummy User',
         email: 'dummydummy@user.com',
-        isDummy: true,
       },
       platform: 'Dummy'
     }

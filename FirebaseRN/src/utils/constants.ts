@@ -1,4 +1,4 @@
-import { FirebaseAuthTypes } from '@react-native-firebase/auth';
+import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {User} from '@react-native-google-signin/google-signin';
 
 /**
@@ -40,14 +40,29 @@ export type DummyUser = {
   user: {
     email: string;
     name: string;
-    isDummy: boolean;
-  }
+  };
   platform: string;
-}
+};
 
-export type GoogleUser =  FirebaseAuthTypes.UserCredential & {
+export type GoogleUser = FirebaseAuthTypes.User & {
   platform: string;
-}
+};
+
+type Without<T, U> = {[P in Exclude<keyof T, keyof U>]?: never};
+type XOR<T, U> = T | U extends object
+  ? (Without<T, U> & U) | (Without<U, T> & T)
+  : T | U;
+
+type UnionKeys<T> = T extends T ? keyof T : never;
+
+// Improve intellisense
+type Expand<T> = T extends T ? {[K in keyof T]: T[K]} : never;
+
+type OneOf<T extends {}[]> = {
+  [K in keyof T]: Expand<
+    T[K] & Partial<Record<Exclude<UnionKeys<T[number]>, keyof T[K]>, never>>
+  >;
+}[number];
 
 // 'platform' is the discriminant in this type
-export type UserType = GoogleUser | DummyUser;
+export type UserType = OneOf<[GoogleUser, DummyUser]>;

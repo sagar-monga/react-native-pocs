@@ -12,7 +12,28 @@
           "package_name": "com.firebasereactnative.test"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "771672005871-p25sm6tvcr3ug73lelpbvp6b269pm8eu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.firebasereactnative.test",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "771672005871-umjck4bf9ldhq5e859atgnk7vg5i3pn4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.firebasereactnative.test",
+            "certificate_hash": "0b8c6a028978c8b182027403eec818a6463042a6"
+          }
+        },
+        {
+          "client_id": "771672005871-lb7c3cud3l38i95q6cni8ksh2irau6ft.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBcQ4OUjDYtDRGS_3pFvx2gXXgW-KUUo84"
@@ -20,7 +41,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "771672005871-lb7c3cud3l38i95q6cni8ksh2irau6ft.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
