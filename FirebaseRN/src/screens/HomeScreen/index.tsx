@@ -3,6 +3,7 @@ import React from 'react';
 import ParentView from '../../components/ParentView';
 import useHome from './useHome';
 import {FontSize} from '../../utils/constants';
+import TailwindStyled from '../TailwindStyled';
 
 const HomeScreen = () => {
   const {getName, user, logout} = useHome();
@@ -16,6 +17,11 @@ const HomeScreen = () => {
           <Text style={styles.textStyle}>Logout</Text>
         </Pressable>
       </View>
+      {
+        <View>
+          <TailwindStyled />
+        </View>
+      }
     </ParentView>
   );
 };

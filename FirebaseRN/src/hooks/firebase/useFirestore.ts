@@ -1,4 +1,4 @@
-import firestore from '@react-native-firebase/firestore';
+import firestore, {Filter} from '@react-native-firebase/firestore';
 import {UserType} from '../../utils/constants';
 import {useState} from 'react';
 import useAsyncEffect from '../useAsyncEffect';
@@ -59,10 +59,44 @@ const useFirestore = () => {
     }
   };
 
+  const getAllFeatureFlags = async () => {
+    try {
+      return await featureFlagCollection.get();
+    } catch (error: any) {
+      console.log(`Error in getAllFeatureFlags: ${error}`);
+    }
+  };
+
+  const getInternalUseFeatureFlags = async () => {
+    try {
+      return await featureFlagCollection
+        .where(
+          Filter.and(
+            Filter('isEnabled', '==', true),
+            Filter('isForInternalUser', '==', true),
+          ),
+        )
+        .get();
+    } catch (error) {
+      console.log(`Error in getInternalUseFeatureFlags: ${error}`);
+    }
+  };
+
+  const getFeatureFlagsById = async (id: number) => {
+    try {
+      return await featureFlagCollection.where(Filter('id', '==', id)).get();
+    } catch (error: any) {
+      console.log(`Error in getFeatureFlagsById: ${error}`);
+    }
+  };
+
   return {
     users,
     addUser,
     getUserById,
+    getAllFeatureFlags,
+    getFeatureFlagsById,
+    getInternalUseFeatureFlags,
   };
 };
 
