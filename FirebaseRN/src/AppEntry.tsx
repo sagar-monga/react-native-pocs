@@ -5,7 +5,7 @@ import HomeScreen from './screens/HomeScreen';
 import LoginScreen from './screens/LoginScreen';
 import auth from '@react-native-firebase/auth';
 import useUserStore from './hooks/useUserStore';
-import {GoogleUser, UserType} from './utils/constants';
+import {LoginUser, UserType} from './utils/constants';
 import FormInputScreen from './screens/FormInputScreen';
 import NewFormInputScreen from './screens/NewFormInputScreen';
 import TailwindStyled from './screens/TailwindStyled';
@@ -23,8 +23,8 @@ const AppEntry = () => {
         `Auth state changed! User is: ${JSON.stringify(user as GoogleUser)}`);
       // Not destructuring as destructuring provides some inner props too.
       // setUser({...user as User, platform: 'Google'} as GoogleUser);
-      const newUser: GoogleUser = user;
-      newUser.platform = 'Google';
+      const newUser: UserType = user;
+      newUser.platform = LoginUser.google;
       setUser(newUser);
       if (initializing) setInitializing(false);
     }

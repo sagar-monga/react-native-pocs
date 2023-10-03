@@ -32,21 +32,46 @@ export enum BasedAxis {
   width = 'width',
 }
 
+export enum LoginUser {
+  google = 'google',
+  dummy = 'dummy',
+}
+
 /**
  * Types
  */
 
-export type DummyUser = {
+// export type OldDummyUser = {
+//   user: {
+//     email: string;
+//     name: string;
+//   };
+//   platform: string;
+// };
+
+// export type OldGoogleUser = FirebaseAuthTypes.User & {
+//   platform: string;
+// };
+
+type DummyUser = {
   user: {
     email: string;
     name: string;
   };
-  platform: string;
+  platform: LoginUser.dummy;
 };
 
-export type GoogleUser = FirebaseAuthTypes.User & {
-  platform: string;
+type GoogleUser = FirebaseAuthTypes.User & {
+  platform: LoginUser.google;
 };
+
+type CommonUserProps = {
+  isInternalUser?: boolean;
+  featuresAvailable?: number[];
+};
+
+export type UserType = (DummyUser | GoogleUser) & CommonUserProps;
+
 
 type Without<T, U> = {[P in Exclude<keyof T, keyof U>]?: never};
 type XOR<T, U> = T | U extends object
@@ -65,4 +90,4 @@ type OneOf<T extends {}[]> = {
 }[number];
 
 // 'platform' is the discriminant in this type
-export type UserType = OneOf<[GoogleUser, DummyUser]>;
+export type OldUserType = OneOf<[GoogleUser, DummyUser]>;
