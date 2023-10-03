@@ -1,20 +1,20 @@
 import {create} from 'zustand';
 import {devtools} from 'zustand/middleware';
-import {GoogleUser, UserType} from '../utils/constants';
+import {UserType} from '../utils/constants';
 
 interface UserState {
   // Add States
   user: UserType | undefined;
 
   // Add state modifying functions
-  setUser: (user: UserType) => void;
+  setUser: (user: UserType | undefined) => void;
 }
 
 const useUserStore = create<UserState>()(
   devtools(set => ({
     user: undefined,
     // Write state modification logic here
-    setUser: (user: UserType) => set(state => ({user: user})),
+    setUser: (user: UserType | undefined) => set(state => ({user: user})),
   })),
 );
 

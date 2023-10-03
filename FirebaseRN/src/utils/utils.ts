@@ -1,4 +1,5 @@
 import {Dimensions, PixelRatio} from 'react-native';
+import uuid from 'react-native-uuid';
 import {BasedAxis, referenceHeight, referenceWidth} from './constants';
 
 export default class utils {
@@ -28,4 +29,7 @@ export default class utils {
   public static pixelGap = (size: number) => {
     return utils.normalize(size);
   };
+  public static getRandomStringUUID = () => {
+    return uuid.v4().toString();
+  }
 }

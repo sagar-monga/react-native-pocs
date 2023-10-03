@@ -1,10 +1,13 @@
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
-import {DummyUser, LoginUser, UserType} from '../../utils/constants';
-import auth from '@react-native-firebase/auth';
+import {LoginUser, UserType} from '../../utils/constants';
+import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import useUserStore from '../useUserStore';
+import utils from '../../utils/utils';
+import useFirestore from '../firebase/useFirestore';
 
 const useLogin = () => {
   const setUser = useUserStore(state => state.setUser);
+  const {addUser} = useFirestore();
 
   const googleSignIn = async () => {
     try {
@@ -22,12 +25,35 @@ const useLogin = () => {
       // Sign-in the user with the credential
       const obj = await auth().signInWithCredential(googleCredential);
       console.log(`Signed in`);
-      // setUser({...obj.user, platform: 'Google'})
+
+      _addGoogleUserToFirestore(obj.user);
     } catch (e: unknown) {
       console.log(`Error is: ${JSON.stringify(e)}`);
     }
   };
 
+  const _addGoogleUserToFirestore = (user: FirebaseAuthTypes.User) => {
+    const newUser: UserType = {
+      platform: LoginUser.google,
+      user: {
+        displayName: user.displayName,
+        email: user.email,
+        metadata: user.metadata,
+        photoURL: user.photoURL,
+        multiFactor: user.multiFactor,
+        phoneNumber: user.phoneNumber,
+        emailVerified: user.emailVerified,
+        isAnonymous: user.isAnonymous,
+        uid: user.uid,
+        providerData: user.providerData,
+      },
+      id: user.uid,
+      featuresAvailable: [],
+      isInternalUser: false,
+    };
+    addUser(newUser);
+    setUser(newUser);
+  };
   const dummyLogin = () => {
     const dummyUser: UserType = {
       user: {
@@ -35,7 +61,11 @@ const useLogin = () => {
         email: 'dummydummy@user.com',
       },
       platform: LoginUser.dummy,
+      id: utils.getRandomStringUUID(),
+      featuresAvailable: [],
+      isInternalUser: false,
     };
+    addUser(dummyUser);
     setUser(dummyUser);
   };
 

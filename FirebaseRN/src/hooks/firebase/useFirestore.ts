@@ -5,19 +5,26 @@ import useAsyncEffect from '../useAsyncEffect';
 
 enum CollectionNames {
   User = 'user',
-  // FeatureFlag = 'feature-flag',
+  FeatureFlag = 'feature-flag',
 }
 
 const useFirestore = () => {
   const [users, setUsers] = useState<UserType[]>([]);
+  const userCollection = firestore().collection(CollectionNames.User);
+  const featureFlagCollection = firestore().collection(
+    CollectionNames.FeatureFlag,
+  );
 
   useAsyncEffect(async () => {
-    const userQuerySnapshot = await firestore()
-      .collection(CollectionNames.User)
-      .get();
+    const users = await getAllUsers();
+    setUsers(users);
+  }, []);
 
+  const getAllUsers = async () => {
+    const userQuerySnapshot = await userCollection.get();
+    //TODO: Return users from here
     userQuerySnapshot.docs.forEach((doc, index) => {
-      console.log(`doc ${index}: ${JSON.stringify(doc.data())}`);
+      // console.log(`doc ${index}: ${JSON.stringify(doc.data(), null, 4)}`);
     });
 
     //* REALTIME
@@ -33,10 +40,29 @@ const useFirestore = () => {
     //   console.error(error);
     // }
     // firestore().collection('user').onSnapshot(onResult, onError);
-  }, []);
+  };
+
+  const getUserById = async (id: string) => {
+    try {
+      const results = await userCollection.where('id', '==', id).get();
+      //TODO: RETURN CONVERTED MODEL here
+    } catch (error: any) {
+      console.log(`Error in getUserById: ${error}`);
+    }
+  };
+
+  const addUser = async (user: UserType) => {
+    try {
+      await userCollection.add(user);
+    } catch (error: any) {
+      console.log(`Error in addUser: ${error}`);
+    }
+  };
 
   return {
     users,
+    addUser,
+    getUserById,
   };
 };
 

@@ -33,8 +33,8 @@ export enum BasedAxis {
 }
 
 export enum LoginUser {
-  google = 'google',
-  dummy = 'dummy',
+  google = 'Google',
+  dummy = 'Dummy',
 }
 
 /**
@@ -61,13 +61,15 @@ type DummyUser = {
   platform: LoginUser.dummy;
 };
 
-type GoogleUser = FirebaseAuthTypes.User & {
+export type GoogleUser = {
+  user: Partial<FirebaseAuthTypes.User>;
   platform: LoginUser.google;
 };
 
 type CommonUserProps = {
-  isInternalUser?: boolean;
-  featuresAvailable?: number[];
+  id: string,
+  isInternalUser: boolean;
+  featuresAvailable: number[];
 };
 
 export type UserType = (DummyUser | GoogleUser) & CommonUserProps;
