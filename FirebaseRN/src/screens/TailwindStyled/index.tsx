@@ -1,12 +1,11 @@
-import {View, Text, Pressable, StyleSheet} from 'react-native';
-import React, {useState} from 'react';
-import useStateStore from '../NewFormInputScreen/store/useStore';
-import TextInputWithLabel from '../../components/TextInputWithLabel';
+import React from 'react';
+import {Pressable, StyleSheet, Text, View} from 'react-native';
 import Spacer from '../../components/Spacer';
-import List from '../NewFormInputScreen/components/List';
-import utils from '../../utils/utils';
-import {FontSize} from '../../utils/constants';
+import TextInputWithLabel from '../../components/TextInputWithLabel';
 import {useFormLogic} from '../../hooks/useFormLogic';
+import {FontSize} from '../../utils/constants';
+import utils from '../../utils/utils';
+import List from '../NewFormInputScreen/components/List';
 
 const TailwindStyled = () => {
   const {

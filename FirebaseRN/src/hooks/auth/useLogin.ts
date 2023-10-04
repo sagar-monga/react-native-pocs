@@ -1,9 +1,9 @@
+import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import {LoginUser, UserType} from '../../utils/constants';
-import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
-import useUserStore from '../useUserStore';
 import utils from '../../utils/utils';
 import useFirestore from '../firebase/useFirestore';
+import useUserStore from '../useUserStore';
 
 const useLogin = () => {
   const setUser = useUserStore(state => state.setUser);

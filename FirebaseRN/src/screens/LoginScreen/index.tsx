@@ -1,11 +1,11 @@
+import React from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
-import React, {useEffect} from 'react';
 import ParentView from '../../components/ParentView';
-import {FontSize, StyleConfig} from '../../utils/constants';
 import Spacer from '../../components/Spacer';
-import utils from '../../utils/utils';
 import useLogin from '../../hooks/auth/useLogin';
 import useFirestore from '../../hooks/firebase/useFirestore';
+import {FontSize, StyleConfig} from '../../utils/constants';
+import utils from '../../utils/utils';
 
 const LoginScreen = () => {
   const {dummyLogin, googleSignIn} = useLogin();

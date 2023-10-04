@@ -1,5 +1,4 @@
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
-import {User} from '@react-native-google-signin/google-signin';
 
 /**
  * Constants
@@ -67,13 +66,12 @@ export type GoogleUser = {
 };
 
 type CommonUserProps = {
-  id: string,
+  id: string;
   isInternalUser: boolean;
   featuresAvailable: number[];
 };
 
 export type UserType = (DummyUser | GoogleUser) & CommonUserProps;
-
 
 type Without<T, U> = {[P in Exclude<keyof T, keyof U>]?: never};
 type XOR<T, U> = T | U extends object

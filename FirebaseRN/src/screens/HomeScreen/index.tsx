@@ -1,9 +1,9 @@
-import {Pressable, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
+import {Pressable, StyleSheet, Text, View} from 'react-native';
 import ParentView from '../../components/ParentView';
-import useHome from './useHome';
 import {FontSize} from '../../utils/constants';
 import TailwindStyled from '../TailwindStyled';
+import useHome from './useHome';
 
 const HomeScreen = () => {
   const {getName, user, logout} = useHome();

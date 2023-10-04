@@ -1,6 +1,6 @@
+import auth from '@react-native-firebase/auth';
 import useUserStore from '../../hooks/useUserStore';
 import {LoginUser} from '../../utils/constants';
-import auth from '@react-native-firebase/auth';
 
 const useHome = () => {
   const {user, setUser} = useUserStore();
@@ -18,7 +18,7 @@ const useHome = () => {
   const logout = async () => {
     await auth().signOut();
     setUser(undefined);
-  }
+  };
   return {user, getName, logout};
 };
 

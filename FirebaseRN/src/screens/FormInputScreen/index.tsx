@@ -1,13 +1,11 @@
-import {Pressable, StyleSheet, Text, TextInput, View} from 'react-native';
-import React, {useRef, useState} from 'react';
+import React from 'react';
+import {Pressable, StyleSheet, Text} from 'react-native';
 import ParentView from '../../components/ParentView';
+import Spacer from '../../components/Spacer';
 import TextInputWithLabel from '../../components/TextInputWithLabel';
+import {useStore} from '../../store/store';
 import {FontSize} from '../../utils/constants';
 import utils from '../../utils/utils';
-import Spacer from '../../components/Spacer';
-import useAgeStore from '../../store/useAgeStore';
-import useNameStore from '../../store/useNameStore';
-import {useStore} from '../../store/store';
 
 const FormInputScreen = () => {
   //* Local State

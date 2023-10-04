@@ -1,6 +1,6 @@
 import firestore, {Filter} from '@react-native-firebase/firestore';
-import {UserType} from '../../utils/constants';
 import {useState} from 'react';
+import {UserType} from '../../utils/constants';
 import useAsyncEffect from '../useAsyncEffect';
 
 enum CollectionNames {

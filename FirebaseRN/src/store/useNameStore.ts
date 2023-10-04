@@ -1,4 +1,4 @@
-import {StateCreator, StoreApi, create} from 'zustand';
+import {StateCreator, create} from 'zustand';
 
 type NameValues = {
   name: string;

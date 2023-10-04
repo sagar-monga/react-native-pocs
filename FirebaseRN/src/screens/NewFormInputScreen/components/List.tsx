@@ -1,8 +1,8 @@
-import {FlatList, Pressable, StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
-import useStateStore from '../store/useStore';
-import {ItemType} from '../store/quantitySlice';
+import {FlatList, Pressable, StyleSheet, Text, View} from 'react-native';
 import TextInputWithLabel from '../../../components/TextInputWithLabel';
+import {ItemType} from '../store/quantitySlice';
+import useStateStore from '../store/useStore';
 
 const List = () => {
   const items = useStateStore(state => state.items);
@@ -42,8 +42,10 @@ const ListItem = ({item, index, selectedItem, onPress}: ListItemProps) => {
       const newItem: ItemType = {
         name: name,
         quantity: quantity,
-      }
-      console.log(`Setting item at index ${index} to ${JSON.stringify(newItem)}`);
+      };
+      console.log(
+        `Setting item at index ${index} to ${JSON.stringify(newItem)}`,
+      );
       update(newItem, index);
       onPress(null);
     };

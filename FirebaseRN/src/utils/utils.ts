@@ -4,7 +4,6 @@ import {BasedAxis, referenceHeight, referenceWidth} from './constants';
 
 export default class utils {
   public static normalize(size: number, based = BasedAxis.width) {
-
     const {height, width} = Dimensions.get('screen');
     const baseWidthScale = width / referenceWidth;
     const baseHeightScale = height / referenceHeight;
@@ -31,5 +30,5 @@ export default class utils {
   };
   public static getRandomStringUUID = () => {
     return uuid.v4().toString();
-  }
+  };
 }

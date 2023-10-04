@@ -1,6 +1,6 @@
 import {create} from 'zustand';
+import createItemSlice, {Item} from './quantitySlice';
 import createUserSlice, {UserSlice} from './userSlice';
-import createItemSlice, { Item } from './quantitySlice';
 
 export type RootState = UserSlice & Item;
 // export type RootState = {
@@ -9,7 +9,7 @@ export type RootState = UserSlice & Item;
 
 const useStateStore = create<RootState>((...a) => ({
   ...createUserSlice(...a),
-  ...createItemSlice(...a)
+  ...createItemSlice(...a),
 }));
 
 export default useStateStore;

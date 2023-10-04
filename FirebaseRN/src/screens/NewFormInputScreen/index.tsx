@@ -1,13 +1,12 @@
+import React from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
-import React, {useState} from 'react';
 import ParentView from '../../components/ParentView';
+import Spacer from '../../components/Spacer';
 import TextInputWithLabel from '../../components/TextInputWithLabel';
+import {useFormLogic} from '../../hooks/useFormLogic';
 import {FontSize} from '../../utils/constants';
 import utils from '../../utils/utils';
-import Spacer from '../../components/Spacer';
-import useStateStore from './store/useStore';
 import List from './components/List';
-import { useFormLogic } from '../../hooks/useFormLogic';
 
 const NewFormInputScreen = () => {
   const {
