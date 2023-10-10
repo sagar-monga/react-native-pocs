@@ -24,7 +24,7 @@ const TailwindStyled = () => {
   } = useFormLogic();
 
   return (
-    <View className="flex-1 items-center justify-center bg-red-800">
+    <View className="flex-1 items-center justify-center bg-red-800 py-20">
       <TextInputWithLabel
         label="Name"
         placeholder="Enter your name"

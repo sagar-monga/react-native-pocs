@@ -120,6 +120,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'darkblue',
     alignItems: 'center',
     paddingHorizontal: 20,
+    paddingVertical: 60
   },
   button: {
     justifyContent: 'center',

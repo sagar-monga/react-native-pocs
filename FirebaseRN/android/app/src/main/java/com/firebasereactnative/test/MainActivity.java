@@ -1,6 +1,7 @@
 package com.firebasereactnative.test;
 
 import android.app.ActionBar;
+import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 
@@ -79,5 +80,9 @@ public class MainActivity extends ReactActivity {
                     .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
                     .emit(ACTIVITY_STATE_CHANGE, params);
         }
+    }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(null);
     }
 }

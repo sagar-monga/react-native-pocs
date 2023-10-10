@@ -1,10 +1,13 @@
 import auth from '@react-native-firebase/auth';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React, {useEffect} from 'react';
 import {StyleSheet} from 'react-native';
 import ParentView from './components/ParentView';
 import useUserStore from './hooks/useUserStore';
-import HomeScreen from './screens/HomeScreen';
-import LoginScreen from './screens/LoginScreen';
+import AuthenticatedStack from './navigation/AuthenticatedStack';
+import UnauthenticatedStack from './navigation/UnauthenticatedStack';
+import { AppRoutes } from './navigation/Routes';
 
 const AppEntry = () => {
   // Handle user state changes
@@ -25,13 +28,26 @@ const AppEntry = () => {
 
   const {user} = useUserStore();
 
+  const BaseStack = createNativeStackNavigator();
+
   return (
-    <ParentView>
-      {user ? <HomeScreen /> : <LoginScreen />}
-      {/* <FormInputScreen /> */}
-      {/* <NewFormInputScreen /> */}
-      {/* <TailwindStyled /> */}
-    </ParentView>
+    <NavigationContainer>
+      <ParentView>
+        <BaseStack.Navigator screenOptions={{headerShown: false}}>
+          {user ? (
+            <BaseStack.Screen
+              name={AppRoutes.AuthenticatedRoutes}
+              component={AuthenticatedStack}
+            />
+          ) : (
+            <BaseStack.Screen
+              name={AppRoutes.UnauthenticatedRoutes}
+              component={UnauthenticatedStack}
+            />
+          )}
+        </BaseStack.Navigator>
+      </ParentView>
+    </NavigationContainer>
   );
 };
 

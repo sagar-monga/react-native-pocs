@@ -16,7 +16,15 @@ const useHome = () => {
   };
 
   const logout = async () => {
-    await auth().signOut();
+    switch (user?.platform) {
+      case LoginUser.dummy:
+        break;
+      case LoginUser.google:
+        await auth().signOut();
+        break;
+      default:
+        break;
+    }
     setUser(undefined);
   };
   return {user, getName, logout};
