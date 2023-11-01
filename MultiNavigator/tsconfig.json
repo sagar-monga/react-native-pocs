@@ -14,7 +14,8 @@
       "@chat/*": ["./src/navigation/tabs/chat/*"],
       "@more/*": ["./src/navigation/tabs/more/*"],
       "@tasks/*": ["./src/navigation/tabs/tasks/*"],
-      "@teams/*": ["./src/navigation/tabs/teams/*"]
+      "@teams/*": ["./src/navigation/tabs/teams/*"],
+      "@assets/*": ["./src/assets/*"]
     }
   },
   "exclude": [

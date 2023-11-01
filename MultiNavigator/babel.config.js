@@ -18,6 +18,7 @@ module.exports = {
           '@more/*': './src/navigation/tabs/more',
           '@tasks/*': './src/navigation/tabs/tasks',
           '@teams/*': './src/navigation/tabs/teams',
+          '@assets/*': './src/assets',
         },
       },
     ],
