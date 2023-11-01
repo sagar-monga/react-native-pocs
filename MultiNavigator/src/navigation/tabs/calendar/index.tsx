@@ -9,7 +9,7 @@ const Calendar = () => {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: Colors.darkGrey,
+        backgroundColor: Colors.black,
       }}>
       <Text>Calendar</Text>
     </View>

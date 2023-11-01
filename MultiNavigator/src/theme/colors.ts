@@ -1,3 +1,7 @@
 export const Colors = {
-    darkGrey: '#1a1a1a',
+  black: '#1a1a1a', // primary
+  grape: '#6f08af', // secondary
+  white: '#fbfbfb', // text
+  bittersweet: '#f26157', // tertiary
+  goldenRod: '#9d8420', // 
 };

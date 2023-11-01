@@ -9,7 +9,7 @@ const Teams = () => {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: Colors.darkGrey,
+        backgroundColor: Colors.black,
       }}>
       <Text>Teams</Text>
     </View>

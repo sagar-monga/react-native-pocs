@@ -7,12 +7,21 @@ import Chat from './tabs/chat';
 import More from './tabs/more';
 import Tasks from './tabs/tasks';
 import Teams from './tabs/teams';
+import {Colors} from '@theme/colors';
 
 const Tab = createBottomTabNavigator();
 
 const AppEntry = () => {
   return (
-    <Tab.Navigator initialRouteName={ScreenRouter.Chat}>
+    <Tab.Navigator
+      initialRouteName={ScreenRouter.Chat}
+      screenOptions={{
+        headerShown: false,
+        tabBarInactiveTintColor: Colors.white,
+        tabBarInactiveBackgroundColor: Colors.black,
+        tabBarActiveTintColor: Colors.grape,
+        tabBarActiveBackgroundColor: Colors.black,
+      }}>
       <Tab.Screen name={ScreenRouter.Activity} component={Activity} />
       <Tab.Screen name={ScreenRouter.Teams} component={Teams} />
       <Tab.Screen name={ScreenRouter.Chat} component={Chat} />
