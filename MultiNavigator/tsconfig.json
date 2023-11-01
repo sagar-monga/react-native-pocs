@@ -9,6 +9,12 @@
       "@screens/*": ["./src/screens/*"],
       "@theme/*": ["./src/theme/*"],
       "@navigation/*": ["./src/navigation/*"],
+      "@activity/*": ["./src/navigation/tabs/activity/*"],
+      "@calendar/*": ["./src/navigation/tabs/calendar/*"],
+      "@chat/*": ["./src/navigation/tabs/chat/*"],
+      "@more/*": ["./src/navigation/tabs/more/*"],
+      "@tasks/*": ["./src/navigation/tabs/tasks/*"],
+      "@teams/*": ["./src/navigation/tabs/teams/*"]
     }
   },
   "exclude": [
