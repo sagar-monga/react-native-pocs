@@ -1,17 +1,22 @@
+import {Colors} from '@theme/colors';
 import React from 'react';
-import {Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 
 function App(): JSX.Element {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#1a1a1a',
-      }}>
+    <View style={styles.baseContainerStyle}>
       <Text>Hello</Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  baseContainerStyle: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: Colors.darkGrey,
+  },
+});
+
 export default App;
