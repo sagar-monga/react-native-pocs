@@ -9,13 +9,13 @@ import {
   SvgTeams,
 } from '@svgs/index';
 import {Colors} from '@theme/colors';
-import React, {useEffect} from 'react';
+import React from 'react';
 import Activity from './tabs/activity';
 import Calendar from './tabs/calendar';
 import Chat from './tabs/chat';
 import More from './tabs/more';
 import Tasks from './tabs/tasks';
-import Teams from './tabs/teams';
+import Teams from './tabs/teams';a
 
 const Tab = createBottomTabNavigator();
 
@@ -30,8 +30,8 @@ const AppEntry = () => {
         tabBarActiveTintColor: Colors.grape,
         tabBarActiveBackgroundColor: Colors.black,
         tabBarStyle: {
-          borderTopWidth: 0
-        }
+          borderTopWidth: 0,
+        },
       }}>
       <Tab.Screen
         name={ScreenRouter.Activity}

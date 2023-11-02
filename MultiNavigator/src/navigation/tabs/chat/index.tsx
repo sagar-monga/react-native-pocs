@@ -11,7 +11,7 @@ const Chat = () => {
         alignItems: 'center',
         backgroundColor: Colors.black,
       }}>
-      <Text>Chat</Text>
+      <Text>Chat</Text>a
     </View>
   );
 };
