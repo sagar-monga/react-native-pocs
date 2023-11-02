@@ -15,7 +15,7 @@ import Calendar from './tabs/calendar';
 import Chat from './tabs/chat';
 import More from './tabs/more';
 import Tasks from './tabs/tasks';
-import Teams from './tabs/teams';a
+import Teams from './tabs/teams';
 
 const Tab = createBottomTabNavigator();
 
