@@ -2,7 +2,7 @@ import {Colors} from '@theme/colors';
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-const Tasks = () => {
+const TasksTab = () => {
   return (
     <View
       style={{
@@ -16,6 +16,6 @@ const Tasks = () => {
   );
 };
 
-export default Tasks;
+export default TasksTab;
 
 const styles = StyleSheet.create({});

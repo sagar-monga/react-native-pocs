@@ -8,71 +8,62 @@ import {
   SvgTasks,
   SvgTeams,
 } from '@svgs/index';
-import {Colors} from '@theme/colors';
 import React from 'react';
-import Activity from './tabs/activity';
-import Calendar from './tabs/calendar';
-import Chat from './tabs/chat';
-import More from './tabs/more';
-import Tasks from './tabs/tasks';
-import Teams from './tabs/teams';
+import ActivityTab from './tabs/activity';
+import CalendarTab from './tabs/calendar';
+import ChatTab from './tabs/chat';
+import {tabConfig} from './tabs/config';
+import MoreTab from './tabs/more';
+import TasksTab from './tabs/tasks';
+import TeamsTab from './tabs/teams';
 
 const Tab = createBottomTabNavigator();
 
 const AppEntry = () => {
   return (
     <Tab.Navigator
-      initialRouteName={ScreenRouter.Chat}
-      screenOptions={{
-        headerShown: false,
-        tabBarInactiveTintColor: Colors.white,
-        tabBarInactiveBackgroundColor: Colors.black,
-        tabBarActiveTintColor: Colors.grape,
-        tabBarActiveBackgroundColor: Colors.black,
-        tabBarStyle: {
-          borderTopWidth: 0,
-        },
-      }}>
+      initialRouteName={ScreenRouter.ChatTab}
+      screenOptions={tabConfig}>
       <Tab.Screen
-        name={ScreenRouter.Activity}
-        component={Activity}
+        name={ScreenRouter.ActivityTab}
+        component={ActivityTab}
         options={{
-          tabBarIcon: ({color, size}) => <SvgActivity color={color} />,
+          tabBarIcon: ({color}) => <SvgActivity color={color} />,
         }}
       />
       <Tab.Screen
-        name={ScreenRouter.Teams}
-        component={Teams}
+        name={ScreenRouter.TeamsTab}
+        component={TeamsTab}
         options={{
-          tabBarIcon: ({color, size}) => <SvgTeams color={color} />,
+          tabBarIcon: ({color}) => <SvgTeams color={color} />,
         }}
       />
       <Tab.Screen
-        name={ScreenRouter.Chat}
-        component={Chat}
+        name={ScreenRouter.ChatTab}
+        component={ChatTab}
         options={{
-          tabBarIcon: ({color, size}) => <SvgChat color={color} />,
+          tabBarIcon: ({color}) => <SvgChat color={color} />,
         }}
       />
       <Tab.Screen
-        name={ScreenRouter.Tasks}
-        component={Tasks}
+        name={ScreenRouter.TasksTab}
+        component={TasksTab}
         options={{
-          tabBarIcon: ({color, size}) => <SvgTasks color={color} />,
+          tabBarIcon: ({color}) => <SvgTasks color={color} />,
         }}
       />
       <Tab.Screen
-        name={ScreenRouter.Calendar}
-        component={Calendar}
+        name={ScreenRouter.CalendarTab}
+        component={CalendarTab}
         options={{
-          tabBarIcon: ({color, size}) => <SvgCalendar color={color} />,
+          tabBarIcon: ({color}) => <SvgCalendar color={color} />,
         }}
       />
       <Tab.Screen
         name={ScreenRouter.More}
-        component={More}
+        component={MoreTab}
         options={{
-          tabBarIcon: ({color, size}) => <SvgMore color={color} />,
+          tabBarIcon: ({color}) => <SvgMore color={color} />,
         }}
       />
     </Tab.Navigator>

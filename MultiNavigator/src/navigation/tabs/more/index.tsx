@@ -2,7 +2,7 @@ import {Colors} from '@theme/colors';
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-const More = () => {
+const MoreTab = () => {
   return (
     <View
       style={{
@@ -16,6 +16,6 @@ const More = () => {
   );
 };
 
-export default More;
+export default MoreTab;
 
 const styles = StyleSheet.create({});

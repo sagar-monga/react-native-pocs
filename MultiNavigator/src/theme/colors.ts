@@ -4,4 +4,5 @@ export const Colors = {
   white: '#fbfbfb', // text
   bittersweet: '#f26157', // tertiary
   goldenRod: '#9d8420', //
+  darkGray: '#444',
 };

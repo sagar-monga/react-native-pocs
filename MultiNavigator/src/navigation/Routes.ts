@@ -1,8 +1,10 @@
 export enum ScreenRouter {
-  Activity = 'Activity',
-  Teams = 'Teams',
-  Chat = 'Chat',
-  Tasks = 'Tasks',
-  Calendar = 'Calendar',
+  ActivityTab = 'ActivityTab',
+  TeamsTab = 'TeamsTab',
+  ChatTab = 'ChatTab',
+  TasksTab = 'TasksTab',
+  CalendarTab = 'CalendarTab',
   More = 'More',
+  ChatList = 'ChatList',
+  Chat = 'Chat',
 }

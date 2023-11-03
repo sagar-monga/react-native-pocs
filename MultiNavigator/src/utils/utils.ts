@@ -1,5 +1,9 @@
 export class Utils {
-    public static calculate = () => {
-        console.log(`Calculating`);
-    }
+  public static getUserInitials = (name: string) => {
+    return name
+      .split(' ')
+      .map(str => str[0])
+      .join('')
+      .toUpperCase();
+  };
 }

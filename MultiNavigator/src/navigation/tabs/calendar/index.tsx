@@ -2,7 +2,7 @@ import {Colors} from '@theme/colors';
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-const Calendar = () => {
+const CalendarTab = () => {
   return (
     <View
       style={{
@@ -16,6 +16,6 @@ const Calendar = () => {
   );
 };
 
-export default Calendar;
+export default CalendarTab;
 
 const styles = StyleSheet.create({});

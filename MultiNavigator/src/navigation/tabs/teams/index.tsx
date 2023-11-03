@@ -2,7 +2,7 @@ import {Colors} from '@theme/colors';
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-const Teams = () => {
+const TeamsTab = () => {
   return (
     <View
       style={{
@@ -16,6 +16,6 @@ const Teams = () => {
   );
 };
 
-export default Teams;
+export default TeamsTab;
 
 const styles = StyleSheet.create({});

@@ -1,21 +1,21 @@
-import {Colors} from '@theme/colors';
+import {ScreenRouter} from '@navigation/Routes';
+import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet} from 'react-native';
+import Chat from './screens/Chat';
+import ChatList from './screens/ChatList';
 
-const Chat = () => {
+const Stack = createStackNavigator();
+
+const ChatTab = () => {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: Colors.black,
-      }}>
-      <Text>Chat</Text>
-    </View>
+    <Stack.Navigator>
+      <Stack.Screen name={ScreenRouter.ChatList} component={ChatList} />
+      <Stack.Screen name={ScreenRouter.Chat} component={Chat} />
+    </Stack.Navigator>
   );
 };
 
-export default Chat;
+export default ChatTab;
 
 const styles = StyleSheet.create({});
