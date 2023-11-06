@@ -12,6 +12,13 @@ export const DrawerConfig:
     }) => DrawerNavigationOptions)
   | undefined = {
   headerShown: false,
+  drawerStyle: {
+    backgroundColor: Colors.black,
+  },
+  drawerActiveBackgroundColor: Colors.black,
+  drawerActiveTintColor: Colors.white,
+  drawerInactiveBackgroundColor: Colors.black,
+  drawerInactiveTintColor: Colors.white,
 };
 
 export const TabConfig:

@@ -8,4 +8,7 @@ export enum ScreenRouter {
   More = 'More',
   ChatList = 'ChatList',
   Chat = 'Chat',
+  Profile = 'Profile',
+  Status = 'Status',
+  Settings = 'Settings',
 }
