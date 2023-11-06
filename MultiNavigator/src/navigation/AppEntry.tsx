@@ -1,10 +1,11 @@
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import React from 'react';
+import {DrawerParamList} from './ParamList';
 import {ScreenRouter} from './Routes';
 import {DrawerConfig} from './config';
 import TabNavigator from './tabs';
 
-const Drawer = createDrawerNavigator();
+const Drawer = createDrawerNavigator<DrawerParamList>();
 
 const AppEntry = () => {
   return (

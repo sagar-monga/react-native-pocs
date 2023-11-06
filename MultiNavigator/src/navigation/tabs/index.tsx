@@ -1,3 +1,4 @@
+import {BottomTabParamList} from '@navigation/ParamList';
 import {ScreenRouter} from '@navigation/Routes';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {
@@ -9,15 +10,15 @@ import {
   SvgTeams,
 } from '@svgs/index';
 import React from 'react';
+import {TabConfig} from '../config';
 import ActivityTab from './activity';
 import CalendarTab from './calendar';
 import ChatTab from './chat';
-import {TabConfig} from '../config';
 import MoreTab from './more';
 import TasksTab from './tasks';
 import TeamsTab from './teams';
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<BottomTabParamList>();
 
 const TabNavigator = () => {
   return (

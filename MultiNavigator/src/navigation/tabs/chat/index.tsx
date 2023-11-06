@@ -1,3 +1,4 @@
+import { ChatStackParamList } from '@navigation/ParamList';
 import {ScreenRouter} from '@navigation/Routes';
 import {StackConfig} from '@navigation/config';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -6,7 +7,7 @@ import ChatList from '@screens/ChatList';
 import React from 'react';
 import {StyleSheet} from 'react-native';
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<ChatStackParamList>();
 
 const ChatTab = () => {
   return (
