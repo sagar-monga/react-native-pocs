@@ -8,3 +8,9 @@ To create a MS Teams like clone with multiple navigators, stack, bottombar, draw
 - install react-native-svg
 - install react-native-svg-transformer as dev dependency
 - add config to metro.config.js
+
+# Adding new icons
+
+- Add to icon type in Icon.tsx
+- Add case to Icon.tsx
+- Use IconButton in your component.

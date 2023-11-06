@@ -5,3 +5,6 @@ export {default as SvgMore} from './more-enabled.svg';
 export {default as SvgTasks} from './tasks-filled.svg';
 export {default as SvgTeams} from './teams-filled.svg';
 export {default as SvgSearch} from './search.svg';
+export {default as SvgBack} from './back-navigation.svg';
+export {default as SvgDrawer} from './drawer.svg';
+export {default as SvgFilter} from './filter.svg';
