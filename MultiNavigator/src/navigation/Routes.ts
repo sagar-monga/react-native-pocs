@@ -1,4 +1,5 @@
 export enum ScreenRouter {
+  DrawerHome = 'DrawerHome',
   ActivityTab = 'ActivityTab',
   TeamsTab = 'TeamsTab',
   ChatTab = 'ChatTab',

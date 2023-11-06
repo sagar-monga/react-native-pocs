@@ -1,5 +1,5 @@
 import {User} from '@models/User';
-import { ScreenRouter } from '@navigation/Routes';
+import {ScreenRouter} from '@navigation/Routes';
 import {useNavigation} from '@react-navigation/native';
 import {Colors} from '@theme/colors';
 import {Utils} from '@utils/utils';
@@ -16,7 +16,7 @@ const ChatItem = ({user, index}: Props) => {
 
   const goToChat = () => {
     navigation.navigate(ScreenRouter.Chat);
-  }
+  };
 
   return (
     <Pressable style={styles.parentContainer} onPress={goToChat}>
