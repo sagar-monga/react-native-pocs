@@ -5,7 +5,7 @@ import {
   ColorValue,
   GestureResponderEvent,
   Pressable,
-  StyleSheet,
+  TouchableOpacity,
 } from 'react-native';
 import {NumberProp} from 'react-native-svg';
 
@@ -18,16 +18,16 @@ type Props = {
 const IconButton = ({
   icon,
   color = Colors.black,
-  onPress = () => {},
+  onPress = () => {
+    console.log(`Default`);
+  },
   height,
 }: Props) => {
   return (
-    <Pressable onPress={onPress}>
+    <Pressable onPress={onPress} key={icon}>
       <Icon name={icon} color={color} height={height} />
     </Pressable>
   );
 };
 
 export default IconButton;
-
-const styles = StyleSheet.create({});

@@ -1,7 +1,7 @@
 import {User} from '@models/User';
 import {ChatStackParamList} from '@navigation/ParamList';
 import {ScreenRouter} from '@navigation/Routes';
-import {useNavigation} from '@react-navigation/native';
+import {DrawerActions, useNavigation} from '@react-navigation/native';
 import {Colors} from '@theme/colors';
 import {Utils} from '@utils/utils';
 import React from 'react';
