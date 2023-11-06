@@ -29,6 +29,7 @@ const AppEntry = () => {
         component={ActivityTab}
         options={{
           tabBarIcon: ({color}) => <SvgActivity color={color} />,
+          tabBarLabel: 'Activity'
         }}
       />
       <Tab.Screen
@@ -36,6 +37,7 @@ const AppEntry = () => {
         component={TeamsTab}
         options={{
           tabBarIcon: ({color}) => <SvgTeams color={color} />,
+          tabBarLabel: 'Teams'
         }}
       />
       <Tab.Screen
@@ -43,6 +45,7 @@ const AppEntry = () => {
         component={ChatTab}
         options={{
           tabBarIcon: ({color}) => <SvgChat color={color} />,
+          tabBarLabel: 'Chat',
         }}
       />
       <Tab.Screen
@@ -50,6 +53,7 @@ const AppEntry = () => {
         component={TasksTab}
         options={{
           tabBarIcon: ({color}) => <SvgTasks color={color} />,
+          tabBarLabel: 'Tasks'
         }}
       />
       <Tab.Screen
@@ -57,6 +61,7 @@ const AppEntry = () => {
         component={CalendarTab}
         options={{
           tabBarIcon: ({color}) => <SvgCalendar color={color} />,
+          tabBarLabel: 'Calendar'
         }}
       />
       <Tab.Screen
