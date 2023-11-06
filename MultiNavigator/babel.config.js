@@ -2,7 +2,7 @@ module.exports = {
   presets: ['module:metro-react-native-babel-preset'],
   plugins: [
     [
-      'module-resolver',
+    'module-resolver',
       {
         root: ['.'],
         extensions: ['.ios.js', '.android.js', '.js', '.ts', '.tsx', '.json', '.svg'],
@@ -20,8 +20,10 @@ module.exports = {
           '@tasks': './src/navigation/tabs/tasks',
           '@teams': './src/navigation/tabs/teams',
           '@models': './src/models',
+          '@mocks': './src/mocks',
         },
       },
     ],
+    'react-native-reanimated/plugin',
   ],
 };
