@@ -1,18 +1,25 @@
 import {User} from '@models/User';
+import {ChatStackParamList} from '@navigation/ParamList';
 import {ScreenRouter} from '@navigation/Routes';
 import {useNavigation} from '@react-navigation/native';
 import {Colors} from '@theme/colors';
 import {Utils} from '@utils/utils';
 import React from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
+import {StackNavigationProp} from '@react-navigation/stack';
 
 type Props = {
   user: User;
   index: number;
 };
 
+type ChatNavigation = StackNavigationProp<
+  ChatStackParamList,
+  ScreenRouter.ChatList
+>;
+
 const ChatItem = ({user, index}: Props) => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<ChatNavigation>();
 
   const goToChat = () => {
     navigation.navigate(ScreenRouter.Chat);

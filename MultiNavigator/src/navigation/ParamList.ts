@@ -1,13 +1,14 @@
+import {NavigatorScreenParams} from '@react-navigation/native';
 import {ScreenRouter} from './Routes';
 
 export type DrawerParamList = {
-  [ScreenRouter.DrawerHome]: undefined;
+  [ScreenRouter.DrawerHome]: NavigatorScreenParams<BottomTabParamList>;
 };
 
 export type BottomTabParamList = {
   [ScreenRouter.ActivityTab]: undefined;
   [ScreenRouter.TeamsTab]: undefined;
-  [ScreenRouter.ChatTab]: undefined;
+  [ScreenRouter.ChatTab]: NavigatorScreenParams<ChatStackParamList>;
   [ScreenRouter.TasksTab]: undefined;
   [ScreenRouter.CalendarTab]: undefined;
   [ScreenRouter.More]: undefined;
