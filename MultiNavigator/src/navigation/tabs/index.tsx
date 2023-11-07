@@ -24,7 +24,9 @@ const TabNavigator = () => {
   return (
     <Tab.Navigator
       initialRouteName={ScreenRouter.ChatTab}
-      screenOptions={TabConfig}>
+      screenOptions={TabConfig}
+      // https://github.com/react-navigation/react-navigation/issues/526
+      backBehavior='none'>
       <Tab.Screen
         name={ScreenRouter.ActivityTab}
         component={ActivityTab}
