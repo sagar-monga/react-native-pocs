@@ -20,9 +20,6 @@ const DrawerContent = () => {
   return (
     <DrawerContentScrollView>
       <DrawerItem
-        label={() => <Text>{ScreenRouter.DrawerHome}</Text>}
-        onPress={() => {}}></DrawerItem>
-      <DrawerItem
         label={() => <Text>{ScreenRouter.Profile}</Text>}
         onPress={() => {}}></DrawerItem>
       <DrawerItem

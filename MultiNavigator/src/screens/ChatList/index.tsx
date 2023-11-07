@@ -1,3 +1,4 @@
+import AvatarButton from '@components/Avatar/AvatarButton';
 import Header from '@components/Header';
 import {IconTypes} from '@components/Icon';
 import IconButton from '@components/IconButton';
@@ -9,8 +10,9 @@ import {DrawerActions, useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {Colors} from '@theme/colors';
 import {globalStyles} from '@theme/styles';
+import {AvatarSize} from '@utils/constants';
 import React, {useState} from 'react';
-import {FlatList, StyleSheet, View} from 'react-native';
+import {FlatList, StyleSheet, Text, View} from 'react-native';
 import ChatItem from './components/ChatItem';
 import Seperator from './components/Seperator';
 
@@ -22,11 +24,17 @@ const ChatList = () => {
 
   const renderLeftHeader = () => {
     return (
-      <IconButton
-        icon={IconTypes.Drawer}
-        color={Colors.white}
-        onPress={() => navigation.dispatch(DrawerActions.toggleDrawer)}
-      />
+      <AvatarButton
+        containerStyle={{
+          height: AvatarSize.small,
+          width: AvatarSize.small,
+          backgroundColor: Colors.grape
+        }}
+        onPress={() => {
+          navigation.dispatch(DrawerActions.openDrawer);
+        }}>
+        <Text style={[styles.avatarText]}>{'CU'}</Text>
+      </AvatarButton>
     );
   };
 
@@ -77,6 +85,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+
   titleContainer: {
     height: '100%',
     flex: 1,
@@ -93,4 +102,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  avatarText: {fontSize: 16},
 });

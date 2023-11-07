@@ -1,12 +1,13 @@
+import {Avatar} from '@components/Avatar/Avatar';
 import {User} from '@models/User';
 import {ChatStackParamList} from '@navigation/ParamList';
 import {ScreenRouter} from '@navigation/Routes';
-import {DrawerActions, useNavigation} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
 import {Colors} from '@theme/colors';
 import {Utils} from '@utils/utils';
 import React from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
-import {StackNavigationProp} from '@react-navigation/stack';
 
 type Props = {
   user: User;
@@ -27,11 +28,11 @@ const ChatItem = ({user, index}: Props) => {
 
   return (
     <Pressable style={styles.parentContainer} onPress={goToChat}>
-      <View style={styles.avatar}>
+      <Avatar>
         <Text style={styles.avatarText}>
           {Utils.getUserInitials(user.name)}
         </Text>
-      </View>
+      </Avatar>
       <View style={styles.spacerw20} />
       <View style={styles.textContainer}>
         <Text style={styles.name}>{user.name}</Text>
