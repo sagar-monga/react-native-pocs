@@ -11,7 +11,6 @@ import {useNavigation} from '@react-navigation/native';
 import {Colors} from '@theme/colors';
 import {AvatarSize, currentUser} from '@utils/constants';
 import React from 'react';
-import {StyleSheet} from 'react-native';
 
 type NavProps = DrawerNavigationProp<DrawerParamList, ScreenRouter.DrawerHome>;
 
