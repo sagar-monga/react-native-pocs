@@ -1,11 +1,15 @@
 import {Colors} from '@theme/colors';
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {Pressable, StyleSheet, Text, View} from 'react-native';
 import Icon, {IconTypes} from './Icon';
 
 const SearchBar = () => {
   return (
-    <View style={styles.parentContainer}>
+    <Pressable
+      style={styles.parentContainer}
+      android_ripple={{
+        color: Colors.darkGray,
+      }}>
       <Icon
         name={IconTypes.Search}
         color={Colors.white}
@@ -14,7 +18,7 @@ const SearchBar = () => {
       />
       <View style={{width: 10}} />
       <Text style={{fontSize: 14, color: Colors.white}}>Search</Text>
-    </View>
+    </Pressable>
   );
 };
 
@@ -27,7 +31,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     padding: 20,
-    borderColor: 'red',
     borderWidth: 2,
   },
 });
