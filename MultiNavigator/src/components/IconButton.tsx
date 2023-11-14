@@ -1,12 +1,7 @@
 import Icon, {IconTypes} from '@components/Icon';
 import {Colors} from '@theme/colors';
 import React from 'react';
-import {
-  ColorValue,
-  GestureResponderEvent,
-  Pressable,
-  TouchableOpacity,
-} from 'react-native';
+import {ColorValue, GestureResponderEvent, Pressable} from 'react-native';
 import {NumberProp} from 'react-native-svg';
 
 type Props = {
@@ -24,7 +19,12 @@ const IconButton = ({
   height,
 }: Props) => {
   return (
-    <Pressable onPress={onPress} key={icon}>
+    <Pressable
+      onPress={onPress}
+      key={icon}
+      android_ripple={{
+        color: Colors.darkGray,
+      }}>
       <Icon name={icon} color={color} height={height} />
     </Pressable>
   );

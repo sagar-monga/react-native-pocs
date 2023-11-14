@@ -1,3 +1,4 @@
+import {Colors} from '@theme/colors';
 import React from 'react';
 import {Pressable, StyleSheet} from 'react-native';
 import Avatar, {AvatarProps} from './Avatar';
@@ -12,7 +13,11 @@ const AvatarButton = ({
   containerStyle,
 }: AvatarProps & AvatarButtonProps) => {
   return (
-    <Pressable onPress={onPress}>
+    <Pressable
+      onPress={onPress}
+      android_ripple={{
+        color: Colors.darkGray,
+      }}>
       <Avatar containerStyle={containerStyle}>{children}</Avatar>
     </Pressable>
   );

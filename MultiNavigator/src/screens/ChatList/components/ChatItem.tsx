@@ -29,13 +29,18 @@ const ChatItem = ({user, index}: Props) => {
   };
 
   return (
-    <Pressable style={styles.parentContainer} onPress={goToChat}>
+    <Pressable
+      style={styles.parentContainer}
+      onPress={goToChat}
+      android_ripple={{
+        color: Colors.darkGray,
+      }}>
       <Avatar>
         <Text style={styles.avatarText}>
           {Utils.getUserInitials(user.name)}
         </Text>
       </Avatar>
-      <Spacer width={20}/>
+      <Spacer width={20} />
       <View style={styles.textContainer}>
         <Text style={[globalStyles.baseText, styles.name]}>{user.name}</Text>
         <Text numberOfLines={2} style={globalStyles.baseText}>
