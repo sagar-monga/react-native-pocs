@@ -61,5 +61,3 @@ const DrawerContent = () => {
 };
 
 export default DrawerContent;
-
-const styles = StyleSheet.create({});
