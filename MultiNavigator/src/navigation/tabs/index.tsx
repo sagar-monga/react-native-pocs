@@ -1,14 +1,7 @@
+import Icon, {IconTypes} from '@components/Icon';
 import {BottomTabParamList} from '@navigation/ParamList';
 import {ScreenRouter} from '@navigation/Routes';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {
-  SvgActivity,
-  SvgCalendar,
-  SvgChat,
-  SvgMore,
-  SvgTasks,
-  SvgTeams,
-} from '@svgs/index';
 import React from 'react';
 import {TabConfig} from '../config';
 import ActivityTab from './activity';
@@ -26,12 +19,14 @@ const TabNavigator = () => {
       initialRouteName={ScreenRouter.ChatTab}
       screenOptions={TabConfig}
       // https://github.com/react-navigation/react-navigation/issues/526
-      backBehavior='none'>
+      backBehavior="none">
       <Tab.Screen
         name={ScreenRouter.ActivityTab}
         component={ActivityTab}
         options={{
-          tabBarIcon: ({color}) => <SvgActivity color={color} />,
+          tabBarIcon: ({color}) => (
+            <Icon name={IconTypes.Activity} color={color} />
+          ),
           tabBarLabel: 'Activity',
         }}
       />
@@ -39,7 +34,9 @@ const TabNavigator = () => {
         name={ScreenRouter.TeamsTab}
         component={TeamsTab}
         options={{
-          tabBarIcon: ({color}) => <SvgTeams color={color} />,
+          tabBarIcon: ({color}) => (
+            <Icon name={IconTypes.Teams} color={color} />
+          ),
           tabBarLabel: 'Teams',
         }}
       />
@@ -47,7 +44,7 @@ const TabNavigator = () => {
         name={ScreenRouter.ChatTab}
         component={ChatTab}
         options={{
-          tabBarIcon: ({color}) => <SvgChat color={color} />,
+          tabBarIcon: ({color}) => <Icon name={IconTypes.Chat} color={color} />,
           tabBarLabel: 'Chat',
         }}
       />
@@ -55,7 +52,9 @@ const TabNavigator = () => {
         name={ScreenRouter.TasksTab}
         component={TasksTab}
         options={{
-          tabBarIcon: ({color}) => <SvgTasks color={color} />,
+          tabBarIcon: ({color}) => (
+            <Icon name={IconTypes.Tasks} color={color} />
+          ),
           tabBarLabel: 'Tasks',
         }}
       />
@@ -63,7 +62,9 @@ const TabNavigator = () => {
         name={ScreenRouter.CalendarTab}
         component={CalendarTab}
         options={{
-          tabBarIcon: ({color}) => <SvgCalendar color={color} />,
+          tabBarIcon: ({color}) => (
+            <Icon name={IconTypes.Calendar} color={color} />
+          ),
           tabBarLabel: 'Calendar',
         }}
       />
@@ -71,7 +72,7 @@ const TabNavigator = () => {
         name={ScreenRouter.More}
         component={MoreTab}
         options={{
-          tabBarIcon: ({color}) => <SvgMore color={color} />,
+          tabBarIcon: ({color}) => <Icon name={IconTypes.More} color={color} />,
         }}
       />
     </Tab.Navigator>
