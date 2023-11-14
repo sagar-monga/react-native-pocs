@@ -1,33 +1,61 @@
-import {StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import DrawerContentRow from '@components/DrawerContentRow';
+import {IconTypes} from '@components/Icon';
+import ProfileDrawerHeader from '@navigation/drawer/profile';
+import {DrawerParamList} from '@navigation/ParamList';
+import {ScreenRouter} from '@navigation/Routes';
 import {
   DrawerContentScrollView,
-  DrawerItem,
   DrawerNavigationProp,
 } from '@react-navigation/drawer';
-import {ScreenRouter} from '@navigation/Routes';
 import {useNavigation} from '@react-navigation/native';
-import {DrawerParamList} from '@navigation/ParamList';
+import {Colors} from '@theme/colors';
+import {AvatarSize, currentUser} from '@utils/constants';
+import React from 'react';
+import {StyleSheet} from 'react-native';
 
 type NavProps = DrawerNavigationProp<DrawerParamList, ScreenRouter.DrawerHome>;
 
 /**
  * Custom Drawer Content Component
- * @returns 
+ * @returns
  */
 const DrawerContent = () => {
   const navigation = useNavigation<NavProps>();
   return (
     <DrawerContentScrollView>
-      <DrawerItem
-        label={() => <Text>{ScreenRouter.Profile}</Text>}
-        onPress={() => {}}></DrawerItem>
-      <DrawerItem
-        label={() => <Text>{ScreenRouter.Status}</Text>}
-        onPress={() => {}}></DrawerItem>
-      <DrawerItem
-        label={() => <Text>{ScreenRouter.Settings}</Text>}
-        onPress={() => {}}></DrawerItem>
+      <ProfileDrawerHeader
+        onPress={() => {}}
+        avatarSize={AvatarSize.small}
+        avatarColor={Colors.grape}
+        name={currentUser.name}
+        designation={currentUser.designation}
+      />
+      <DrawerContentRow
+        onPress={() => {}}
+        iconName={IconTypes.Tick}
+        iconColor={Colors.goldenRod}
+        label={'Available'}
+      />
+      <DrawerContentRow
+        onPress={() => {}}
+        iconName={IconTypes.Location}
+        label={'Set Work Location'}
+      />
+      <DrawerContentRow
+        onPress={() => {}}
+        iconName={IconTypes.Write}
+        label={'Set Status Message'}
+      />
+      <DrawerContentRow
+        onPress={() => {}}
+        iconName={IconTypes.Activity}
+        label={'Notifications'}
+      />
+      <DrawerContentRow
+        onPress={() => {}}
+        iconName={IconTypes.Plus}
+        label={'Add Account'}
+      />
     </DrawerContentScrollView>
   );
 };

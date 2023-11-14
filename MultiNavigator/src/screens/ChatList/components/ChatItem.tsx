@@ -1,10 +1,12 @@
 import {Avatar} from '@components/Avatar/Avatar';
+import Spacer from '@components/Spacer';
 import {User} from '@models/User';
 import {ChatStackParamList} from '@navigation/ParamList';
 import {ScreenRouter} from '@navigation/Routes';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {Colors} from '@theme/colors';
+import {globalStyles} from '@theme/styles';
 import {Utils} from '@utils/utils';
 import React from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
@@ -33,10 +35,12 @@ const ChatItem = ({user, index}: Props) => {
           {Utils.getUserInitials(user.name)}
         </Text>
       </Avatar>
-      <View style={styles.spacerw20} />
+      <Spacer width={20}/>
       <View style={styles.textContainer}>
-        <Text style={styles.name}>{user.name}</Text>
-        <Text numberOfLines={2}>{user.message}</Text>
+        <Text style={[globalStyles.baseText, styles.name]}>{user.name}</Text>
+        <Text numberOfLines={2} style={globalStyles.baseText}>
+          {user.message}
+        </Text>
       </View>
       <View>
         <Text>{user.time}</Text>
@@ -62,7 +66,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   avatarText: {fontSize: 18},
-  spacerw20: {width: 20},
   textContainer: {flex: 1},
   name: {fontWeight: 'bold', fontSize: 16},
 });

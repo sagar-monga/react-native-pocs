@@ -14,6 +14,7 @@ export const DrawerConfig:
   headerShown: false,
   drawerStyle: {
     backgroundColor: Colors.black,
+    width: '80%'
   },
   drawerActiveBackgroundColor: Colors.black,
   drawerActiveTintColor: Colors.white,

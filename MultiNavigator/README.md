@@ -14,3 +14,6 @@ To create a MS Teams like clone with multiple navigators, stack, bottombar, draw
 - Add to icon type in Icon.tsx
 - Add case to Icon.tsx
 - Use IconButton in your component.
+
+# Mock Data
+- https://json-generator.com/
