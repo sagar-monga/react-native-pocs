@@ -1,5 +1,5 @@
-import {Image, StatusBar, StyleSheet} from 'react-native';
 import React from 'react';
+import {Image, StatusBar, StyleSheet} from 'react-native';
 import ParentView from '../../components/ParentView';
 
 /**

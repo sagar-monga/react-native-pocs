@@ -1,5 +1,4 @@
-import { FirebaseAuthTypes } from '@react-native-firebase/auth';
-import {User} from '@react-native-google-signin/google-signin';
+import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 
 /**
  * Constants
@@ -32,22 +31,63 @@ export enum BasedAxis {
   width = 'width',
 }
 
+export enum LoginUser {
+  google = 'Google',
+  dummy = 'Dummy',
+}
+
 /**
  * Types
  */
 
-export type DummyUser = {
+// export type OldDummyUser = {
+//   user: {
+//     email: string;
+//     name: string;
+//   };
+//   platform: string;
+// };
+
+// export type OldGoogleUser = FirebaseAuthTypes.User & {
+//   platform: string;
+// };
+
+type DummyUser = {
   user: {
     email: string;
     name: string;
-    isDummy: boolean;
-  }
-  platform: string;
-}
+  };
+  platform: LoginUser.dummy;
+};
 
-export type GoogleUser =  FirebaseAuthTypes.UserCredential & {
-  platform: string;
-}
+export type GoogleUser = {
+  user: Partial<FirebaseAuthTypes.User>;
+  platform: LoginUser.google;
+};
+
+type CommonUserProps = {
+  id: string;
+  isInternalUser: boolean;
+  featuresAvailable: number[];
+};
+
+export type UserType = (DummyUser | GoogleUser) & CommonUserProps;
+
+type Without<T, U> = {[P in Exclude<keyof T, keyof U>]?: never};
+type XOR<T, U> = T | U extends object
+  ? (Without<T, U> & U) | (Without<U, T> & T)
+  : T | U;
+
+type UnionKeys<T> = T extends T ? keyof T : never;
+
+// Improve intellisense
+type Expand<T> = T extends T ? {[K in keyof T]: T[K]} : never;
+
+type OneOf<T extends {}[]> = {
+  [K in keyof T]: Expand<
+    T[K] & Partial<Record<Exclude<UnionKeys<T[number]>, keyof T[K]>, never>>
+  >;
+}[number];
 
 // 'platform' is the discriminant in this type
-export type UserType = GoogleUser | DummyUser;
+export type OldUserType = OneOf<[GoogleUser, DummyUser]>;

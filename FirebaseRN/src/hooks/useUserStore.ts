@@ -1,5 +1,5 @@
 import {create} from 'zustand';
-import {devtools, persist} from 'zustand/middleware';
+import {devtools} from 'zustand/middleware';
 import {UserType} from '../utils/constants';
 
 interface UserState {
@@ -7,14 +7,14 @@ interface UserState {
   user: UserType | undefined;
 
   // Add state modifying functions
-  setUser: (user: UserType) => void;
+  setUser: (user: UserType | undefined) => void;
 }
 
 const useUserStore = create<UserState>()(
   devtools(set => ({
     user: undefined,
     // Write state modification logic here
-    setUser: (user: UserType) => set(state => ({user: user})),
+    setUser: (user: UserType | undefined) => set(state => ({user: user})),
   })),
 );
 

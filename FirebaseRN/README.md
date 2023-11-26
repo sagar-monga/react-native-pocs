@@ -6,8 +6,14 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 - Dynamic component sizing.
 - AppState for showing different screen and not image on recents screen.
 - Zustand for state management.
+- NativeWind.
 
 # What all works
 - Dynamic Component sizing.
 - AppState for showing different screen and not image on recents screen.
 - Zustand.
+- NativeWind
+- Firebase Auth (Google login)
+
+# ToDo
+- Feature flags stored on firestore

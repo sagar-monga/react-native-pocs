@@ -1,33 +1,54 @@
-import {StyleSheet} from 'react-native';
-import React, {useEffect, useState} from 'react';
-import ParentView from './components/ParentView';
-import HomeScreen from './screens/HomeScreen';
-import LoginScreen from './screens/LoginScreen';
 import auth from '@react-native-firebase/auth';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import React, {useEffect} from 'react';
+import {StyleSheet} from 'react-native';
+import ParentView from './components/ParentView';
 import useUserStore from './hooks/useUserStore';
-import { UserType } from './utils/constants';
+import AuthenticatedStack from './navigation/AuthenticatedStack';
+import UnauthenticatedStack from './navigation/UnauthenticatedStack';
+import { AppRoutes } from './navigation/Routes';
 
 const AppEntry = () => {
-  // Set an initializing state whilst Firebase connects
-  const [initializing, setInitializing] = useState(true);
-  // const [user, setUser] = useState<unknown>();
-  const {user, setUser} = useUserStore();
-
   // Handle user state changes
-  // function onAuthStateChanged(user: any) {
-  //   console.log(`Auth state changed!`);
-  //   setUser(user);
-  //   if (initializing) setInitializing(false);
-  // }
+  function onAuthStateChanged(user: any) {
+    if (user !== null) {
+      //! Not destructuring as destructuring provides some inner props too.
+      // setUser({...user as User, platform: 'Google'} as GoogleUser);
+      // if (initializing) setInitializing(false);
+    }
+  }
 
-  // useEffect(() => {
-  //   const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
-  //   return () => {
-  //     console.log(`UNMOUNTING listener`);
-  //     subscriber();
-  //   }; // unsubscribe on unmount
-  // }, []);
-  return <ParentView>{user ? <HomeScreen /> : <LoginScreen />}</ParentView>;
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return () => {
+      subscriber();
+    };
+  }, []);
+
+  const {user} = useUserStore();
+
+  const BaseStack = createNativeStackNavigator();
+
+  return (
+    <NavigationContainer>
+      <ParentView>
+        <BaseStack.Navigator screenOptions={{headerShown: false}}>
+          {user ? (
+            <BaseStack.Screen
+              name={AppRoutes.AuthenticatedRoutes}
+              component={AuthenticatedStack}
+            />
+          ) : (
+            <BaseStack.Screen
+              name={AppRoutes.UnauthenticatedRoutes}
+              component={UnauthenticatedStack}
+            />
+          )}
+        </BaseStack.Navigator>
+      </ParentView>
+    </NavigationContainer>
+  );
 };
 
 export default AppEntry;

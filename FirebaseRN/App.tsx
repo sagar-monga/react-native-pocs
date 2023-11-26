@@ -1,5 +1,5 @@
-import {SafeAreaView, View} from 'react-native';
-import React, {useEffect} from 'react';
+import {View} from 'react-native';
+import React from 'react';
 import AppEntry from './src/AppEntry';
 import InactiveScreen from './src/screens/InactiveScreen';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
@@ -8,7 +8,8 @@ import useAppStateChange from './src/hooks/useAppStateChange';
 const App = () => {
   GoogleSignin.configure({
     webClientId:
-      '458716631788-5l39ncfn1m6hol1v3rmeqs2bg5po95ao.apps.googleusercontent.com',
+      '771672005871-lb7c3cud3l38i95q6cni8ksh2irau6ft.apps.googleusercontent.com',
+    offlineAccess: false,
   });
 
   const {isFocused} = useAppStateChange();

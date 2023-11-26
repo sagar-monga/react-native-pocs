@@ -1,0 +1,16 @@
+export {default as SvgActivity} from './activity-filled.svg';
+export {default as SvgCalendar} from './calendar-filled.svg';
+export {default as SvgChat} from './chat-filled.svg';
+export {default as SvgMore} from './more-enabled.svg';
+export {default as SvgTasks} from './tasks-filled.svg';
+export {default as SvgTeams} from './teams-filled.svg';
+export {default as SvgSearch} from './search.svg';
+export {default as SvgBack} from './back-navigation.svg';
+export {default as SvgDrawer} from './drawer.svg';
+export {default as SvgFilter} from './filter.svg';
+export {default as SvgLocation} from './add-location.svg';
+export {default as SvgPlus} from './plus.svg';
+export {default as SvgRightArrow} from './right-arrow.svg';
+export {default as SvgSettings} from './settings.svg';
+export {default as SvgTick} from './tick.svg';
+export {default as SvgWrite} from './write.svg';
