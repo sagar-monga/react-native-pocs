@@ -1,5 +1,5 @@
+import React from 'react';
 import {StyleSheet, Text, TextInput, View} from 'react-native';
-import React, {useState} from 'react';
 
 type Props = {
   label: string;
@@ -8,12 +8,6 @@ type Props = {
 };
 
 const TextInputWithLabel = ({label, onChange, value}: Props) => {
-  const [text, setText] = useState('');
-
-  const updateText = (text: string) => {
-    setText(text);
-  };
-
   return (
     <View style={styles.rowContainer}>
       <Text style={styles.label}>{label}</Text>
@@ -48,5 +42,5 @@ const styles = StyleSheet.create({
   },
   label: {
     width: '20%',
-  }
+  },
 });

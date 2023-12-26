@@ -17,9 +17,7 @@ type Props = {
 
 const Button = ({buttonStyle, label, labelStyle, onPress}: Props) => {
   return (
-    <Pressable
-      style={[styles.btn, buttonStyle]}
-      onPress={onPress}>
+    <Pressable style={[styles.btn, buttonStyle]} onPress={onPress}>
       <Text style={labelStyle}>{label}</Text>
     </Pressable>
   );
