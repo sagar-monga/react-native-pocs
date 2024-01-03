@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import Button from '../components/Button';
-import TextInputWithLabel from '../components/TextInputWithLabelF';
+import TextInputWithLabel from '../components/TextInputWithLabel';
 
 const UserForm = () => {
   const [name, setName] = useState('');
