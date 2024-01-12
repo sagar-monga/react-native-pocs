@@ -1,9 +1,10 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
+import {Env} from './env';
 
 const App = () => {
   return <View style={styles.root}>
-    <Text>This is a new project</Text>
+    <Text>{`Running on ${Env.PUBLIC_ENVIRONMENT} environment`}</Text>
   </View>;
 };
 

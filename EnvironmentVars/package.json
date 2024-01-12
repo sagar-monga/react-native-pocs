@@ -7,11 +7,15 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "android-dev": "set ENVFILE=.env.development && yarn android",
+    "android-test": "set ENVFILE=.env.test && yarn android",
+    "android-prod": "set ENVFILE=.env.production && yarn android"
   },
   "dependencies": {
     "react": "18.2.0",
-    "react-native": "0.73.2"
+    "react-native": "0.73.2",
+    "react-native-config": "^1.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
