@@ -25,8 +25,11 @@ export class MMKVSingleton {
 
   getObject(key: string) {
     const str = MMKVSingleton.storage.getString(key);
-    const obj = JSON.parse(str);
-    return obj;
+    if (str) {
+      const obj = JSON.parse(str);
+      return obj;
+    }
+    return undefined;
   }
 
   setString(key: string, value: string | boolean | number | object) {

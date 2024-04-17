@@ -3,8 +3,8 @@ import {StyleSheet, Text, TextInput, View} from 'react-native';
 
 type Props = {
   label: string;
-  value: string;
-  onChange: (text: string) => void;
+  value: string | number;
+  onChange: (text: string | number) => void;
 };
 
 const TextInputWithLabel = ({label, onChange, value}: Props) => {
