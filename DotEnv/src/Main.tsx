@@ -1,10 +1,12 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
+import {env} from './config/env';
 
 const Main = () => {
   return (
     <View style={styles.parent}>
-      <Text>Main</Text>
+      <Text>{`Environment: ${env.environment}`}</Text>
+      <Text>{`Base URL: ${env.baseUrl}`}</Text>
     </View>
   );
 };

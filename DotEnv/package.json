@@ -3,7 +3,12 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "android-dev": "SET ENVFILE=.env.development && react-native run-android",
+    "android-test": "SET ENVFILE=.env.testenv && react-native run-android",
+    "android-prod": "SET ENVFILE=.env.production && react-native run-android",
     "android": "react-native run-android",
+    "release_android_test_apk": "cd android && SET ENVFILE=.env.testenv && ./gradlew assembleRelease",
+    "release_prod_aab": "cd android && SET ENVFILE=.env.production && ./gradlew bundleRelease",
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
@@ -11,7 +16,8 @@
   },
   "dependencies": {
     "react": "18.2.0",
-    "react-native": "0.74.0"
+    "react-native": "0.74.0",
+    "react-native-config": "^1.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
@@ -27,7 +33,6 @@
     "eslint": "^8.19.0",
     "jest": "^29.6.3",
     "prettier": "2.8.8",
-    "react-native-dotenv": "^3.4.11",
     "react-test-renderer": "18.2.0",
     "typescript": "5.0.4"
   },
