@@ -48,7 +48,7 @@ const ChatItem = ({user, index}: Props) => {
         </Text>
       </View>
       <View>
-        <Text>{user.time}</Text>
+        <Text style={globalStyles.baseText}>{user.time}</Text>
       </View>
     </Pressable>
   );
