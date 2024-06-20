@@ -26,6 +26,8 @@ export default SearchBar;
 
 const styles = StyleSheet.create({
   parentContainer: {
+    marginHorizontal: 10,
+    borderRadius: 100,
     height: 60,
     backgroundColor: Colors.darkGray,
     flexDirection: 'row',
