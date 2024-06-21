@@ -14,6 +14,7 @@ import {
   SvgTasks,
   SvgTeams,
   SvgTick,
+  SvgUpArrow,
   SvgWrite,
 } from '@svgs/index';
 import {Colors} from '@theme/colors';
@@ -38,6 +39,7 @@ export enum IconTypes {
   Settings = 'settings',
   Tick = 'tick',
   Write = 'write',
+  UpArrow = 'upArrow'
 }
 
 type IconProps = {
@@ -102,6 +104,9 @@ const Icon = ({
       break;
     case IconTypes.Write:
       icon = <SvgWrite color={color} height={height} width={width} />;
+      break;
+    case IconTypes.UpArrow:
+      icon = <SvgUpArrow color={color} height={height} width={width} />;
       break;
   }
   return icon;

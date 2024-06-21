@@ -13,6 +13,12 @@ import {globalStyles} from '@theme/styles';
 import {AvatarSize} from '@utils/constants';
 import React, {useState} from 'react';
 import {FlatList, StyleSheet, Text, View} from 'react-native';
+import Animated, {
+  useAnimatedRef,
+  useAnimatedStyle,
+  useScrollViewOffset,
+  withTiming,
+} from 'react-native-reanimated';
 import ChatItem from './components/ChatItem';
 import Seperator from './components/Seperator';
 
@@ -22,13 +28,16 @@ const ChatList = () => {
   const [refreshing, setRefreshing] = useState(false);
   const navigation = useNavigation<NavProps>();
 
+  const scrollRef = useAnimatedRef<Animated.FlatList>();
+  const scrollHandler = useScrollViewOffset(scrollRef);
+
   const renderLeftHeader = () => {
     return (
       <AvatarButton
         containerStyle={{
           height: AvatarSize.small,
           width: AvatarSize.small,
-          backgroundColor: Colors.grape
+          backgroundColor: Colors.grape,
         }}
         onPress={() => {
           navigation.dispatch(DrawerActions.openDrawer);
@@ -49,6 +58,17 @@ const ChatList = () => {
     }, 3000);
   };
 
+  const scrollToTop = () => {
+    scrollRef.current.scrollToOffset({offset: 0, animated: true});
+  };
+
+  const buttonAnimatedStyle = useAnimatedStyle(() => {
+    return {
+      opacity: scrollHandler.value > 800 ? withTiming(1) : withTiming(0),
+      // opacity: interpolate(scrollHandler.value, [800, 0], [1, 0]),
+    };
+  });
+
   return (
     <View style={globalStyles.baseContainer}>
       <Header
@@ -59,6 +79,8 @@ const ChatList = () => {
 
       <FlatList
         nestedScrollEnabled
+        // ref={listRef}
+        ref={scrollRef}
         data={dummyUsers}
         renderItem={({item, index}) => <ChatItem user={item} index={index} />}
         ItemSeparatorComponent={() => <Seperator />}
@@ -66,6 +88,14 @@ const ChatList = () => {
         refreshing={refreshing}
         onRefresh={onRefresh}
       />
+      <Animated.View style={[buttonAnimatedStyle]}>
+        <IconButton
+          icon={IconTypes.UpArrow}
+          color={Colors.white}
+          onPress={() => scrollToTop()}
+          buttonStyle={[styles.scrollToTopButton]}
+        />
+      </Animated.View>
     </View>
   );
 };
@@ -103,4 +133,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   avatarText: {fontSize: 16},
+  scrollToTopButton: {
+    backgroundColor: Colors.grape,
+    position: 'absolute',
+    padding: 15,
+    borderRadius: 50,
+    bottom: 20,
+    right: 20,
+    flex: 1,
+  },
 });

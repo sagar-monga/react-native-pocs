@@ -14,3 +14,4 @@ export {default as SvgRightArrow} from './right-arrow.svg';
 export {default as SvgSettings} from './settings.svg';
 export {default as SvgTick} from './tick.svg';
 export {default as SvgWrite} from './write.svg';
+export {default as SvgUpArrow} from './arrow-up.svg';

@@ -42,7 +42,7 @@ const ChatItem = ({user, index}: Props) => {
       </Avatar>
       <Spacer width={20} />
       <View style={styles.textContainer}>
-        <Text style={[globalStyles.baseText, styles.name]}>{user.name}</Text>
+        <Text style={[globalStyles.baseText, styles.name]}>{`${index + 1}: ${user.name}`}</Text>
         <Text numberOfLines={2} style={globalStyles.baseText}>
           {user.message}
         </Text>
